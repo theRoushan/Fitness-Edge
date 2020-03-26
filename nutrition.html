@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Edge - Nutrition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/hover.css" media="all">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="icon" href="images/logo.png">
+</head>
+
+<body>
+    <aside>
+        <div>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-youtube"></i></a>
+            <a href="#"><i class="fa fa-whatsapp"></i></a>
+        </div>
+    </aside>
+    <header id="Header">
+        <img src="images/logo.png" alt="" class="logo">
+        <ul>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="index.html#feature">Features</a></li>
+                <li><a href="index.html#contact">Contact Us</a></li>
+                <li><a href="timetable.html">Timetable</a></li>
+                <li><a href="nutrition.html">Nutrition</a></li>
+            </ul>
+        </ul>
+    </header>
+
+    <!--It contains the Nutrition Guides and Articles for the Gym aspirants.-->
+    <section class="nutrition" id="nutrition">
+        <div class="card hvr-sweep-to-bottom" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
+            <img src="images/Gallery/undraw_diet_ghvw (1).svg" alt="">
+            <h3>Calorie Counting Explained</h3>
+        </div>
+        <div class="card hvr-sweep-to-bottom" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="300">
+            <img src="images/Gallery/water.jpg" alt="">
+            <h3>How to drink more Water</h3>
+        </div>
+        <div class="card hvr-sweep-to-bottom" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="300">
+            <img src="images/Gallery/undraw_wine_tasting_30vw.svg" alt="">
+            <h3>Alcohol and Fitness</h3>
+        </div>
+        <div class="card hvr-sweep-to-bottom" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="300">
+            <img src="images/Gallery/undraw_Hamburger_8ge6.svg" alt="">
+            <h3>Why we need to eat more Fiber</h3>
+        </div>
+        <div class="card hvr-sweep-to-bottom" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="300">
+            <img src="images/Gallery/undraw_breakfast_psiw.svg" alt="">
+            <h3>What to eat after ending a fast</h3>
+        </div>
+        <div class="card hvr-sweep-to-bottom" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="300">
+            <img src="images/Gallery/undraw_personal_trainer_ote3.svg" alt="">
+            <h3>Training or Empty</h3>
+        </div>
+        <div class="card hvr-sweep-to-bottom" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="300">
+            <img src="images/Gallery/undraw_cup_of_tea_6nqg.svg" alt="">
+            <h3>Start Snacking</h3>
+        </div>
+        <div class="card hvr-sweep-to-bottom" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="300">
+            <img src="images/Gallery/undraw_breakfast_psiw.svg" alt="">
+            <h3>Top Vegetarian protien Sources</h3>
+        </div>
+    </section>
+
+    <!--Footer-->
+    <section class="footer">
+        <div class="quick-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="index.html#feature">Features</a></li>
+                <li><a href="index.html#contact">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="social-media">
+            <h3>Like Us on</h3>
+            <div>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+                <a href="#"><i class="fa fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Designed by The Roushan</p>
+            <p>All rights reserved | The Roushan</p>
+        </div>
+
+    </section>
+
+    <!--Scripts For Lazy loading Animations-->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        window.onscroll = function () { myFunction() };
+
+        // Get the header
+        var header = document.getElementById("Header");
+
+        // Get the offset position of the navbar
+        var sticky = header.offsetTop;
+
+        // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+    </script>
+</body>
+
+</html>

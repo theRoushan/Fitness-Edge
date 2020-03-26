@@ -1,0 +1,605 @@
+/*--------------------------
+Author: The Roushan
+Dated : 16/03/2020
+-----------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 0.1s;
+}
+
+html{
+    scroll-behavior: smooth;
+    transition: 0.5s;
+}
+
+body
+{
+    min-height: 1000px;
+    width: 100%;
+    position: relative;
+}
+
+aside{
+    position: absolute;
+    width: 10px;
+    z-index: 100;
+    left:-50px;
+}
+
+aside div:hover{
+    transform: translateX(80%);
+}
+
+
+aside div{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    
+    background: linear-gradient(to right, orange, orangered);
+    border-radius: 0px 10px 10px 0px;
+    top: 40vh;
+}
+
+aside div a{
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+aside div i{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+header
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    z-index: 1000;
+    transition: 0.1s;
+}
+
+header .logo
+{
+    height: 80px;
+    width: 110px;
+}
+
+header ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li{
+    position: relative;
+    list-style-type: none;
+}
+
+header ul li a{
+    position: relative;
+    margin: 0 15px;
+    text-decoration: none;
+    color: orange;
+    font-weight: 300;
+    transition: 0.5s;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    background-color: white;
+    box-shadow: 0px 1px 10px 1px rgba(0,0,0,0.2);
+    width: 100%
+}
+
+.sticky .logo
+{
+    filter: invert(100%);
+    height: 20px;
+    width: 40px;
+}
+  
+
+.banner{
+    display: flex;
+    position: relative;
+    min-height: 100vh;
+    transition: 0.5s;
+    width: 100%;
+    z-index: 10;
+    background-size: cover;
+    box-shadow: 0px 1px 10px 1px rgba(0,0,0,0.2);
+}
+
+.banner .ele{
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    text-align: right;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.banner .ele img{
+    display: flex;
+    width: 100%;
+    max-height: 100vh;
+}
+
+.banner .content{
+    padding: 50px;
+    display: flex;
+    position:absolute;
+    justify-self: flex-end;
+    right: 0px;
+    justify-content: center;
+    top:350px;
+    flex-direction: column;
+}
+.banner .content p{
+    position: relative;
+    color: white;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 0;
+}
+
+.banner .content h2{
+    color: rgb(255, 187, 0);
+    position: relative;
+    font-weight: 800;
+    font-size: 60px;
+}
+
+.banner .content button{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 150px;
+    background-image: linear-gradient(to right, orange, orangered);
+    outline: none;
+    border: none;
+    margin-top: 30px;
+    border-radius: 30px;
+}
+
+.banner .content button:hover{
+    background-image: linear-gradient(to right, orangered, red);
+
+}
+
+.banner .content button a{
+    margin: 0;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    font-weight: 700;
+    text-align: right;
+    text-decoration: none;
+}
+
+.about-us{
+    padding: 20px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    transition: 0.2s;
+
+}
+
+.about-us .content{
+    position: relative;
+    padding-top: 50px;
+    padding-left: 200px;
+    padding-right: 200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 50px;
+    color: black;
+    transition: 0.2s;
+    opacity: 0.78
+}
+.about-us h3{
+    transition: 0.1s;
+    transform-style: flat;
+    position: relative;
+    font-weight: 500px;
+    color: black;
+    margin-bottom:20px;
+    font-size: 50px;
+}
+
+/* ----------------------------*/
+.block{
+   width: 100%;
+   position: relative;
+   flex-direction: column;
+   min-height: 500px;
+   background: url(../images/dumbell.jpg);
+}
+
+.block h2{
+    position: relative;
+    color: white;
+    padding-top:20px;
+    padding-left: 350px;
+}
+.block .text-bold{
+    padding-top: 100px;
+    position: relative;
+    font-size: 60px;
+    padding-left: 200px;
+    line-height: 0;
+    color: orange;
+}
+
+.features{
+    margin-left: 200px;
+    margin-right: 200px;
+    top:-300px;
+    background: white;
+    display: flex;
+    position: relative;
+    box-shadow: 0px 1px 15px 1px rgba(0,0,0,0.1);
+
+}
+
+.features .container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.features .card
+{   margin: 0px;
+    display: flex;
+    padding: 30px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background: WHITE;
+    border-right: 1px solid rgba(0,0,0,0.2);
+    border-left: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+
+.features .card img
+{
+    margin-top: 20px;
+    height: 100px;
+    width: 100px;
+    margin-bottom: 50px;
+}
+
+.features .card p{
+   padding-bottom: 50px;
+}
+
+/******************----CSS for the Nutrition Blocks------------**********/
+
+.nutrition{
+    display: flex;
+    width: 100%;
+    margin-top: 100px;
+    min-height: 100vh;
+    padding: 80px 20px 20px 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 100px;
+}
+
+.nutrition .card{
+    margin: 30px 10px 30px 10px;
+    position: relative;
+    display: flex;
+    background: white;
+    color: black;
+    flex-direction: column;
+    text-align: center;
+    flex-wrap: wrap;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.1);
+    justify-content: space-between;
+}
+
+.nutrition .card img
+{
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+}
+
+.nutrition .card h3{
+    color: orangered;
+    font-size: 13px;
+    padding: 2px;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+/*---------------Styling of Contact-Us Section --------------*/
+
+.contact-us{
+    display: flex;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    transition: 0.1s;
+}
+
+.contact-us .container2{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    transition: 0.1s;
+
+}
+
+.contact-us .container2 .banner2{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: 0.1s;
+
+}
+
+.contact-us .container2 .banner2 img{
+    width: 100%;
+    transition: 0.1s;
+
+}
+
+.contact-us .container2 .banner2 div{
+    width: 100%;
+    position: absolute;
+    color: white;
+}
+
+.contact-us .container2 .banner2 div h2
+{
+    position: relative;
+    display: flex;
+    font-size: 40px;
+    transition: 0.1s;
+    padding-top: 30px;
+    justify-content: center;
+}
+
+.contact-us .container2 .banner2 div h4
+{
+    position: relative;
+    display: flex;
+    font-size: 20px;
+    transition: 0.1s;
+    justify-content: center;
+    font-weight: 300;
+}
+
+.contact-us .container2 .box2{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-left: 100px;
+    margin-right: 100px;
+    background: white;
+    box-shadow: 0px 1px 20px 2px rgba(0,0,0,0.1);
+    top: -250px;
+    transition: 0.1s;
+    border-radius: 5px;
+}
+
+.contact-us .container2 .box2 form{
+    display: flex;
+    position: relative;
+    transition: 0.1s;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+.contact-us .container2 .box2 form div{
+   display: flex;
+   padding: 20px;
+   width: 50%;
+   transition: 0.1s;
+   position: relative;
+   flex-direction: column;
+}
+
+.contact-us .container2 .box2 form div label{
+    display: flex;
+    position: relative;
+    transition: 0.1s;
+    font-size: 13px;
+}
+
+.contact-us .container2 .box2 form div input{
+    display: flex;
+    position: relative;
+    border: none;   
+    padding: 5px;
+    outline: none;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.contact-us .container2 .box2 form div input::placeholder{
+    position: relative;
+    opacity: 0.5;
+}
+
+.contact-us .container2 .box2 textarea{
+    display: flex;
+    position: relative;
+    border: none;
+    outline: none;
+    transition: 0.1s;
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.contact-us .container2 .box2 textarea::placeholder{
+    opacity: 0.5;
+}
+
+.contact-us .container2 .box2 .btn{
+    display: flex;
+    position: relative;
+    width: 200px;
+    margin-left: 20px;
+    margin-top: 50px;
+    padding: 10px;
+    transition: 0.1s;
+    justify-content: center;
+    border: none;
+    outline: none;
+    background-image: linear-gradient(to right, orange, orangered);
+    font-size: 15px;
+    border-radius: 5px;
+    color: white;
+}
+
+.contact-us .container2 .box2 .btn:hover{
+    background-image: linear-gradient(to right, orangered, rgb(163, 4, 4));
+}
+
+.contact-us .container2 .box2 .address{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: 50px;
+    color: white;
+    font-size: 30px;
+    text-align: left;
+    justify-content: center;
+    border-radius: 0px 5px 5px 0px;
+    background-image: linear-gradient(to right, orange, orangered);
+}
+
+.contact-us .container2 .box2 .address div{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    color: white;
+}
+
+.contact-us .container2 .box2 .address div i{
+    position: relative;
+    font-size: 20px;
+    padding-top: 30px;
+    margin-right: 20px;
+}
+
+.contact-us .container2 .box2 .address div h4{
+    position: relative;
+    font-size: 15px;
+    padding-top: 25px;
+    font-style: normal;
+    font-weight: 300;
+    margin-right: 20px;
+}
+
+/*------------------- Footer -----------------*/
+.footer{
+    background-image: linear-gradient(to right, orange, orangered);
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 100px;
+    padding-left: 100px;
+}
+
+.footer .social-media
+{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+.footer .social-media h3{
+    color: white;
+    padding: 10px;
+}
+
+.footer .social-media div{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.footer .social-media div a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.footer .quick-links{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+.footer .quick-links h3{
+    color: white;
+    padding: 10px;
+}
+
+.footer .quick-links ul{
+    display: flex;
+    position: relative;
+    list-style: none;
+}
+
+.footer .quick-links ul li{
+    padding: 10px;
+}
+
+.footer .quick-links ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer .copyright{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
