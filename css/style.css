@@ -14,11 +14,12 @@ Dated : 16/03/2020
 html{
     scroll-behavior: smooth;
     transition: 0.5s;
+    scroll-padding-top: 70px;
 }
 
 body
 {
-    min-height: 1000px;
+    min-height: 100vh;
     width: 100%;
     position: relative;
 }
@@ -602,4 +603,17 @@ header ul li a{
     justify-content: center;
     text-align: center;
     color: white;
+}
+
+/***************************SignIn Form*************************************/
+
+.login{
+    /*for header background color */
+    background: linear-gradient(to right, orange, orangered);
+}
+
+.form-container{
+    display: flex;
+    position: relative;
+    
 }
