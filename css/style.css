@@ -625,7 +625,7 @@ header ul li a{
     flex-direction: column;
 }
 
-.main-div, .loggedin-div {
+.main-div, .loggedin-div, .signup-div{
     display: none;
   }
 
@@ -654,7 +654,7 @@ header ul li a{
     color: orangered;
 }
 
-.form-container .main-div .signin{
+.form-container .main-div .signin, .signup-div{
     display: flex;
     position: relative;
     flex-direction: column;
@@ -664,17 +664,17 @@ header ul li a{
     justify-content: space-between;
 }
 
-.form-container .main-div .signin img{
+.form-container .main-div .signin img, .signup-div img{
     width: 100px;
     height: 70px;
     margin: 20px 0px;
 }
 
-.form-container .main-div .signin h1{
+.form-container .main-div .signin h1, .signup-div h1{
    font-size: 30px;
 }
 
-.signin-form{
+.signin-form, .signup-form{
     display: flex;
     position: relative;
     flex-direction: column;
@@ -682,23 +682,23 @@ header ul li a{
     width: 80%;
 }
 
-.signin-form input{
+.signin-form input, .signup-form input{
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
     outline: none;
 }
 
-.signin-form input::placeholder{
+.signin-form input::placeholder, .signup-form input::placeholder{
     color: gray;
     opacity: 0.4;
 }
 
-.signin-form input:focus{
+.signin-form input:focus, .signup-form input:focus{
     border: 2px solid tomato;
 }
 
-.signin-form #btn{
+.signin-form #btn, .signup-form #btn{
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
@@ -707,9 +707,15 @@ header ul li a{
     background-color: #fff;
 }
 
-.signin-form #btn:hover{
+.signin-form #btn:hover, .signup-form #btn:hover{
     color: white;
     background:linear-gradient(to right, orange, orangered);
+}
+
+.signin-form .create-account{
+    text-align: center;
+    font-size: 12px;
+    color: orange;
 }
 
 .loggedin-div{

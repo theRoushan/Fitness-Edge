@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitness Edge - Signin/Signup</title>
+    <title>Fitness Edge - Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
     <link rel="stylesheet" type="text/css" href="css/hover.css" media="all">
@@ -15,8 +15,8 @@
 
 <body>
     <!---It contains Header and navgation menu for the website-->
-    <section class="form-container">
-        <div class="main-div" id="login_div" data-aos="flip-up" data-aos-delay="100" data-aos-duration="1000">
+    <section class="form-container" data-aos="slide-right" data-aos-delay="100" data-aos-duration="400">
+        <div class="main-div" id="login_div">
             <div class="back">
                 <i class="fa fa-arrow-left"></i>
                 <a href="index.html">Back</a>
@@ -30,6 +30,7 @@
                     <input type="password" name="password" id="password" required autocomplete="off"
                         placeholder="Enter your Password">
                     <button id="btn" onclick="login()">Login to Account</button>
+                    <a href="#signup-div" class="create-account" onclick="signup()">Create an account?</a>
                 </div>
             </div>
         </div>
@@ -37,6 +38,20 @@
             <h3>Welcome User</h3>
             <p id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>
             <button onclick="logout()">Logout</button>
+        </div>
+        <div id="signup_div" class="signup-div">
+            <div class="back">
+                <i class="fa fa-arrow-left"></i>
+                <a href="Login.html">Back</a>
+            </div>
+            <img src="images/logo_black.png" alt="Fitness-Edge-Logo" class="hvr-pulse">
+            <h1>Signup for Free</h1>
+            <div class="signup-form">
+                <input type="email" name="email" id="signup-email" required autocomplete="off" placeholder="Enter your Email">
+                <input type="password" name="password" id="signup-password" required autocomplete="off"
+                    placeholder="Enter your Password">
+                <button id="btn" onclick="create_account()">Create a new account</button>
+            </div>
         </div>
     </section>
     <!-- The core Firebase JS SDK is always required and must be listed first -->

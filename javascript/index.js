@@ -4,6 +4,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     document.getElementById("user_div").style.display = "flex";
     document.getElementById("login_div").style.display = "none";
+    document.getElementById("signup_div").style.display = "none";
 
     var user = firebase.auth().currentUser;
 
@@ -19,6 +20,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     document.getElementById("user_div").style.display = "none";
     document.getElementById("login_div").style.display = "flex";
+    document.getElementById("signup_div").style.display = "none";
 
   }
 });
@@ -38,6 +40,24 @@ function login(){
     // ...
   });
 
+}
+
+function signup(){
+  document.getElementById("user_div").style.display = "none";
+  document.getElementById("login_div").style.display = "none";
+  document.getElementById("signup_div").style.display = "flex";
+}
+
+function create_account(){
+  var userEmail = document.getElementById("signup-email").value;
+  var userPass = document.getElementById("signup-password").value;
+
+  firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+  });
 }
 
 function logout(){
