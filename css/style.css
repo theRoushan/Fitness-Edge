@@ -713,7 +713,6 @@ header ul li a{
 }
 
 .loggedin-div{
-    display: flex;
     flex-direction: column;
     align-items: center;
 }
