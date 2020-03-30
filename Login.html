@@ -9,19 +9,20 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
     <link rel="stylesheet" type="text/css" href="css/hover.css" media="all">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" type="text/css" href="css/hover.css" media="all">
     <link rel="icon" href="images/logo.png">
 </head>
 
 <body>
     <!---It contains Header and navgation menu for the website-->
     <section class="form-container">
-        <div class="main-div" id="login_div">
+        <div class="main-div" id="login_div" data-aos="flip-up" data-aos-delay="100" data-aos-duration="1000">
             <div class="back">
                 <i class="fa fa-arrow-left"></i>
                 <a href="index.html">Back</a>
             </div>
             <div class="signin">
-                <img src="images/logo_black.png" alt="">
+                <img src="images/logo_black.png" alt="Fitness-Edge-Logo" class="hvr-pulse">
                 <h1>Welcome Back!</h1>
                 <div class="signin-form">
                     <input type="email" name="email" id="email" required autocomplete="off"
@@ -61,6 +62,11 @@
         firebase.analytics();
     </script>
     <script src="javascript/index.js"></script>
+    <!--Scripts For Lazy loading Animations-->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
