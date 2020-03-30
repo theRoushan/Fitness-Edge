@@ -654,7 +654,7 @@ header ul li a{
     color: orangered;
 }
 
-.form-container .tab-content .signin{
+.form-container .main-div .signin{
     display: flex;
     position: relative;
     flex-direction: column;
@@ -664,13 +664,13 @@ header ul li a{
     justify-content: space-between;
 }
 
-.form-container .tab-content .signin img{
+.form-container .main-div .signin img{
     width: 100px;
     height: 70px;
     margin: 20px 0px;
 }
 
-.form-container .tab-content .signin h1{
+.form-container .main-div .signin h1{
    font-size: 30px;
 }
 
@@ -710,4 +710,10 @@ header ul li a{
 .signin-form #btn:hover{
     color: white;
     background:linear-gradient(to right, orange, orangered);
+}
+
+.loggedin-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
