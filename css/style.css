@@ -14,11 +14,11 @@ Dated : 16/03/2020
 html{
     scroll-behavior: smooth;
     transition: 0.5s;
-    scroll-padding-top: 70px;
 }
 
 body
 {
+    min-height: 1000px;
     width: 100%;
     position: relative;
 }
@@ -602,123 +602,4 @@ header ul li a{
     justify-content: center;
     text-align: center;
     color: white;
-}
-
-/***************************SignIn Form*************************************/
-
-.form-container{
-    display: flex;
-    margin-top: 100px;
-    margin-bottom: 30px;
-    margin-left: 450px;
-    margin-right: 450px;
-    padding: 30px;
-    border-radius: 10px;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid rgba(0,0,0,0.1);
-}
-
-.form-container .main-div{
-    position: relative;
-    width: 100%;
-    flex-direction: column;
-}
-
-.main-div, .loggedin-div, .signup-div{
-    display: none;
-  }
-
-.back{
-    display: flex;
-    align-items: center;
-    width: 55px;
-    justify-content:space-between;
-    color: orangered;
-}
-
-.back .fa-arrow-left{
-    font-size: 13px;
-}
-
-.back a{
-    color: black;
-    text-decoration: none;
-}
-
-.back a:visited{
-    color: green;
-}
-
-.back a:hover{
-    color: orangered;
-}
-
-.form-container .main-div .signin, .signup-div{
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    color: tomato;
-    justify-content: space-between;
-}
-
-.form-container .main-div .signin img, .signup-div img{
-    width: 100px;
-    height: 70px;
-    margin: 20px 0px;
-}
-
-.form-container .main-div .signin h1, .signup-div h1{
-   font-size: 30px;
-}
-
-.signin-form, .signup-form{
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    padding: 20px;
-    width: 80%;
-}
-
-.signin-form input, .signup-form input{
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
-    outline: none;
-}
-
-.signin-form input::placeholder, .signup-form input::placeholder{
-    color: gray;
-    opacity: 0.4;
-}
-
-.signin-form input:focus, .signup-form input:focus{
-    border: 2px solid tomato;
-}
-
-.signin-form #btn, .signup-form #btn{
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
-    outline: none;
-    border: 2px solid orangered;
-    background-color: #fff;
-}
-
-.signin-form #btn:hover, .signup-form #btn:hover{
-    color: white;
-    background:linear-gradient(to right, orange, orangered);
-}
-
-.signin-form .create-account{
-    text-align: center;
-    font-size: 12px;
-    color: black;
-}
-
-.loggedin-div{
-    flex-direction: column;
-    align-items: center;
 }
