@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
     <link rel="stylesheet" type="text/css" href="css/hover.css" media="all">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="icon" href="images/logo.png">
 </head>
 
@@ -28,7 +27,7 @@
         <img src="images/logo.png" alt="" class="logo">
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="#about">About Us</a></li>
+            <li><a href="about-us.html">About Us</a></li>
             <li><a href="#feature">Features</a></li>
             <li><a href="#contact">Contact Us</a></li>
             <li><a href="timetable.html">Timetable</a></li>
@@ -38,13 +37,14 @@
 
     <!--It contains the Banner for the Website-->
     <section class="banner" id=home data-aos="slide-down" data-aos-delay="100" data-aos-duration="1000">
-        <div class="content" data-aos="slide-right" data-aos-delay="100" data-aos-duration="1000">
-            <p>WE PROVIDES</p>
-            <h2>PERSONAL TRAINER</h2>
-            <p>BECAUSE WE CARE FOR YOUR FITNESS.</p>
+        <div class="content" data-aos="fade-down" data-aos-delay="2500" data-aos-duration="1000">
+            <p>THE MORE YOU</p>
+            <h2>SWEAT IN TRAINING</h2>
+            <p>THE LESS YOU BLEED IN COMBAT.</p>
             <button><a href="">JOIN US</a></button>
         </div>
-
+        <p class="transparent text" data-aos="slide-right" data-aos-delay="1000" data-aos-duration="2000">FITNESS</p>
+        <div class="box top" data-aos="slide-down" data-aos-delay="800"></div>
     </section>
 
     <!--It contains the About US Intro-->
@@ -52,20 +52,21 @@
     <section class="about-us" id="about" data-aos="fade-in">
         <div class="content" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
             <h3>FITNESS EDGE</h3>
-            <p>Fitness Gym provides has Qualified Trainers from all over the India. We Provides the best facilities for the Gym Workouts. We have provides Personal Trainer to everyone. We gives high quality services at best Discounted Prices all over the
-                India. Fitness Gym provides has Qualified Trainers from all over the India. We Provides the best facilities for the Gym Workouts. We have provides Personal Trainer to everyone. We gives high quality services at best Discounted Prices all
-                over the India.
+            <p>We want to help you live a fit and healthy lifestyle! We do this by providing you the most suitable equipment for your body workout, keeping your budget, lifestyle and fitness goals in mind. We have a wide range of gym equipment, with strength
+                equipment, cardio, cross training and so much more. Our awesome team is always keen to help. At Fitness Edge, we believe that building a positive culture is incredibly important. The business is underpinned by six core values which speak
+                of our commitment to our customers. We believe in encouraging, supporting, challenging, learning and growing to be the best. At Fitness Edge, every morsel of feedback is a nugget of shiny gold because it gives us the opportunity to provide
+                the best trainings to our valuable Customers.
             </p>
         </div>
     </section>
 
     <!--It shows the Features of the Gym-->
-    <section class="block" id="feature" data-aos="slide-right" data-aos-delay="100" data-aos-duration="1000">
+    <section class="block" id="feature" data-aos="fade-in" data-aos-delay="100" data-aos-duration="1000">
         <h2 class="text-bold">SERVICES</h2>
         <h2>WE OFFER</h2>
     </section>
-    <section class="features">
-        <div class="container" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
+    <section class="features" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+        <div class="container">
             <div class="card hvr-hang" id="card-1">
                 <img src="images/gym.png" alt="">
                 <p>We wants Women Empowerment. We Provides Best Workout Guidance for Women. It is a Unisex Gym.
@@ -85,8 +86,8 @@
     </section>
 
     <!--Contact Us-->
-    <section class="contact-us" data-aos="slide-right" data-aos-delay="100" data-aos-duration="500" id="contact">
-        <div class="container2">
+    <section class="contact-us" data-aos="fade-in" data-aos-delay="100" data-aos-duration="500" id="contact">
+        <div class="container2" data-aos="fade-up">
             <div class="banner2">
                 <img src="images/contact.jpg" alt="">
                 <div class="animated bounce slower">
@@ -94,8 +95,8 @@
                     <h4>Drop us a message and we'll get back to you.</h4>
                 </div>
             </div>
-            <div class="box2">
-                <form action="#" data-aos="fade" data-aos-delay="200" data-aos-duration="1000">
+            <div class="box2" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                <form action="#">
                     <div>
                         <label for="fname">Full Name</label>
                         <input type="text" name="fname" id="fname" placeholder="e.g. Aman Tandon">
@@ -118,7 +119,7 @@
                     <textarea rows="2" cols="80" name="message" id="message" placeholder="Brief your message here"></textarea>
                     <input type="submit" class="btn">
                 </form>
-                <div class="address" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="1000">
+                <div class="address">
                     <h3>REACH US ON</h3>
                     <div>
                         <i class="fa fa-envelope"></i>
@@ -167,6 +168,7 @@
 
     </section>
     <!--Scripts For Lazy loading Animations-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init();

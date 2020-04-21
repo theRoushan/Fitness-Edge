@@ -1,9 +1,8 @@
 /*--------------------------
-Author: The Roushan
-Dated : 16/03/2020
+Dated : 21/04/2020
 -----------------------------*/
 
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
 * {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -27,11 +26,7 @@ aside {
     position: absolute;
     width: 10px;
     z-index: 100;
-    left: -50px;
-}
-
-aside div:hover {
-    transform: translateX(80%);
+    left: 0px;
 }
 
 aside div {
@@ -39,7 +34,7 @@ aside div {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background: linear-gradient(to right, orange, orangered);
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 0px 10px 10px 0px;
     top: 40vh;
 }
@@ -65,7 +60,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    z-index: 1000;
+    z-index: 200;
     transition: 0.1s;
 }
 
@@ -114,7 +109,6 @@ header ul li a {
     min-height: 100vh;
     transition: 0.5s;
     width: 100%;
-    z-index: 0;
     justify-content: center;
     background-image: url('/images/Gallery/caraousel/man-muscular-back.jpg');
     box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.2);
@@ -158,6 +152,32 @@ header ul li a {
     border-radius: 30px;
 }
 
+.banner p.text {
+    position: absolute;
+    top: 0px;
+    z-index: 100;
+    font-size: 340px;
+    font-weight: 700;
+    color: white;
+}
+
+.transparent {
+    opacity: 0.04;
+}
+
+.banner .box {
+    width: 100px;
+    height: 100px;
+    right: 150px;
+    position: absolute;
+    background: white;
+    box-shadow: inset 10px 0px 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+.top {
+    top: 0px;
+}
+
 .banner .content button:hover {
     background-image: linear-gradient(to right, orangered, red);
 }
@@ -178,20 +198,21 @@ header ul li a {
     position: relative;
     justify-content: center;
     width: 100%;
+    margin: auto;
     min-height: 100vh;
     transition: 0.2s;
 }
 
 .about-us .content {
     position: relative;
-    padding-top: 50px;
-    padding-left: 200px;
-    padding-right: 200px;
-    margin: auto;
+    padding-top: 8%;
+    padding-left: 10%;
+    padding-right: 10%;
     display: flex;
     flex-direction: column;
     text-align: center;
     padding-bottom: 50px;
+    justify-content: space-evenly;
     color: black;
     transition: 0.2s;
     opacity: 0.78
@@ -204,7 +225,11 @@ header ul li a {
     font-weight: 500px;
     color: black;
     margin-bottom: 20px;
-    font-size: 50px;
+    font-size: 60px;
+}
+
+.about-us p {
+    font-size: 18px;
 }
 
 
@@ -575,4 +600,178 @@ header ul li a {
     justify-content: center;
     text-align: center;
     color: white;
+}
+
+
+/* For about us Page */
+
+.container {
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+    position: relative;
+    top: 50px;
+}
+
+.gray {
+    background-color: #f0f0f1;
+}
+
+.orangered {
+    color: orangered;
+}
+
+.container .main {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.main .label {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-between;
+    padding: 25px 100px;
+}
+
+.label .box {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+}
+
+.center {
+    text-align: center;
+}
+
+.box .name {
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+}
+
+.heading {
+    font-size: 25px;
+    font-weight: 500;
+    margin: 5px 0px;
+}
+
+.featuring {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 100px;
+}
+
+.big {
+    font-size: 32px;
+    letter-spacing: 0.02em;
+}
+
+.large {
+    font-size: 50px;
+}
+
+.story {
+    display: flex;
+    height: 380px;
+    width: 45%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+article {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.awards {
+    padding: 20px 100px;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.awards img {
+    width: 25%;
+}
+
+.values {
+    background-color: #ddd;
+    display: flex;
+    flex-direction: row;
+    padding: 20px 100px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.values h2 {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.values .content {
+    flex-direction: column;
+    height: max-content;
+    width: 33%;
+    text-align: center;
+}
+
+.our-team {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 52px;
+    min-height: 100vh;
+    width: 100%;
+    margin-top: 0px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 100px;
+    background: url(/images/Gallery/shutterstock_255667762.jpg);
+    background-attachment: scroll;
+    background-position: center;
+}
+
+.our-team .content {
+    display: flex;
+    width: 33%;
+    color: white;
+    padding: 30px;
+    flex-direction: column;
+}
+
+.main-heading {
+    position: absolute;
+    top: 120px;
+    font-size: 100px;
+    color: white;
+    z-index: 100;
+    left: 450px;
+}
+
+.btn {
+    padding: 8px;
+    background-color: white;
+    color: black;
+    outline: none;
+    border: none;
+    box-shadow: inset 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.transparent-bg {
+    background-color: rgba(0, 0, 0, .8);
 }

@@ -24,7 +24,7 @@
         </div>
     </aside>
     <header id="Header">
-        <img src="images/logo.png" alt="" class="logo">
+        <img src="images/logo.png" alt="" class="logo" style="filter: invert(100%);">
         <ul>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -108,7 +108,9 @@
         AOS.init();
     </script>
     <script>
-        window.onscroll = function () { myFunction() };
+        window.onscroll = function() {
+            myFunction()
+        };
 
         // Get the header
         var header = document.getElementById("Header");
