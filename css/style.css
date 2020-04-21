@@ -2,8 +2,9 @@
 Author: The Roushan
 Dated : 16/03/2020
 -----------------------------*/
+
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap');
-*{
+* {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
@@ -11,54 +12,50 @@ Dated : 16/03/2020
     transition: 0.1s;
 }
 
-html{
+html {
     scroll-behavior: smooth;
     transition: 0.5s;
 }
 
-body
-{
+body {
     min-height: 1000px;
     width: 100%;
     position: relative;
 }
 
-aside{
+aside {
     position: absolute;
     width: 10px;
     z-index: 100;
-    left:-50px;
+    left: -50px;
 }
 
-aside div:hover{
+aside div:hover {
     transform: translateX(80%);
 }
 
-
-aside div{
+aside div {
     position: fixed;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    
     background: linear-gradient(to right, orange, orangered);
     border-radius: 0px 10px 10px 0px;
     top: 40vh;
 }
 
-aside div a{
+aside div a {
     color: white;
     font-size: 20px;
     text-decoration: none;
 }
 
-aside div i{
+aside div i {
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
-header
-{
+header {
     position: fixed;
     top: 0;
     left: 0;
@@ -72,25 +69,24 @@ header
     transition: 0.1s;
 }
 
-header .logo
-{
+header .logo {
     height: 80px;
     width: 110px;
 }
 
-header ul{
+header ul {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-header ul li{
+header ul li {
     position: relative;
     list-style-type: none;
 }
 
-header ul li a{
+header ul li a {
     position: relative;
     margin: 0 15px;
     text-decoration: none;
@@ -103,56 +99,39 @@ header ul li a{
     position: fixed;
     top: 0;
     background-color: white;
-    box-shadow: 0px 1px 10px 1px rgba(0,0,0,0.2);
+    box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.2);
     width: 100%
 }
 
-.sticky .logo
-{
+.sticky .logo {
     filter: invert(100%);
     height: 20px;
     width: 40px;
 }
-  
 
-.banner{
-    display: flex;
+.banner {
     position: relative;
     min-height: 100vh;
     transition: 0.5s;
     width: 100%;
-    z-index: 10;
-    background-size: cover;
-    box-shadow: 0px 1px 10px 1px rgba(0,0,0,0.2);
-}
-
-.banner .ele{
-    display: flex;
-    position: relative;
-    width: 100%;
+    z-index: 0;
     justify-content: center;
-    text-align: right;
-    align-items: flex-end;
-    flex-direction: column;
+    background-image: url('/images/Gallery/caraousel/man-muscular-back.jpg');
+    box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.2);
 }
 
-.banner .ele img{
-    display: flex;
-    width: 100%;
-    max-height: 100vh;
-}
-
-.banner .content{
+.banner .content {
     padding: 50px;
     display: flex;
-    position:absolute;
-    justify-self: flex-end;
+    position: relative;
+    align-items: center;
     right: 0px;
     justify-content: center;
-    top:350px;
+    top: 350px;
     flex-direction: column;
 }
-.banner .content p{
+
+.banner .content p {
     position: relative;
     color: white;
     font-weight: 700;
@@ -160,14 +139,14 @@ header ul li a{
     line-height: 0;
 }
 
-.banner .content h2{
+.banner .content h2 {
     color: rgb(255, 187, 0);
     position: relative;
     font-weight: 800;
     font-size: 60px;
 }
 
-.banner .content button{
+.banner .content button {
     display: flex;
     justify-content: center;
     position: relative;
@@ -179,12 +158,11 @@ header ul li a{
     border-radius: 30px;
 }
 
-.banner .content button:hover{
+.banner .content button:hover {
     background-image: linear-gradient(to right, orangered, red);
-
 }
 
-.banner .content button a{
+.banner .content button a {
     margin: 0;
     padding: 10px;
     font-size: 20px;
@@ -194,7 +172,7 @@ header ul li a{
     text-decoration: none;
 }
 
-.about-us{
+.about-us {
     padding: 20px;
     display: flex;
     position: relative;
@@ -202,10 +180,9 @@ header ul li a{
     width: 100%;
     min-height: 100vh;
     transition: 0.2s;
-
 }
 
-.about-us .content{
+.about-us .content {
     position: relative;
     padding-top: 50px;
     padding-left: 200px;
@@ -219,32 +196,36 @@ header ul li a{
     transition: 0.2s;
     opacity: 0.78
 }
-.about-us h3{
+
+.about-us h3 {
     transition: 0.1s;
     transform-style: flat;
     position: relative;
     font-weight: 500px;
     color: black;
-    margin-bottom:20px;
+    margin-bottom: 20px;
     font-size: 50px;
 }
 
+
 /* ----------------------------*/
-.block{
-   width: 100%;
-   position: relative;
-   flex-direction: column;
-   min-height: 500px;
-   background: url(../images/dumbell.jpg);
+
+.block {
+    width: 100%;
+    position: relative;
+    flex-direction: column;
+    min-height: 500px;
+    background: url(../images/dumbell.jpg);
 }
 
-.block h2{
+.block h2 {
     position: relative;
     color: white;
-    padding-top:20px;
+    padding-top: 20px;
     padding-left: 350px;
 }
-.block .text-bold{
+
+.block .text-bold {
     padding-top: 100px;
     position: relative;
     font-size: 60px;
@@ -253,18 +234,17 @@ header ul li a{
     color: orange;
 }
 
-.features{
+.features {
     margin-left: 200px;
     margin-right: 200px;
-    top:-300px;
+    top: -300px;
     background: white;
     display: flex;
     position: relative;
-    box-shadow: 0px 1px 15px 1px rgba(0,0,0,0.1);
-
+    box-shadow: 0px 1px 15px 1px rgba(0, 0, 0, 0.1);
 }
 
-.features .container{
+.features .container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -272,8 +252,8 @@ header ul li a{
     justify-content: space-between;
 }
 
-.features .card
-{   margin: 0px;
+.features .card {
+    margin: 0px;
     display: flex;
     padding: 30px;
     justify-content: center;
@@ -281,27 +261,26 @@ header ul li a{
     align-items: center;
     position: relative;
     background: WHITE;
-    border-right: 1px solid rgba(0,0,0,0.2);
-    border-left: 1px solid rgba(0,0,0,0.1);
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-
-.features .card img
-{
+.features .card img {
     margin-top: 20px;
     height: 100px;
     width: 100px;
     margin-bottom: 50px;
 }
 
-.features .card p{
-   padding-bottom: 50px;
+.features .card p {
+    padding-bottom: 50px;
 }
+
 
 /******************----CSS for the Nutrition Blocks------------**********/
 
-.nutrition{
+.nutrition {
     display: flex;
     width: 100%;
     margin-top: 100px;
@@ -312,7 +291,7 @@ header ul li a{
     margin-bottom: 100px;
 }
 
-.nutrition .card{
+.nutrition .card {
     margin: 30px 10px 30px 10px;
     position: relative;
     display: flex;
@@ -322,18 +301,17 @@ header ul li a{
     text-align: center;
     flex-wrap: wrap;
     border-radius: 5px 5px 5px 5px;
-    box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.1);
     justify-content: space-between;
 }
 
-.nutrition .card img
-{
+.nutrition .card img {
     width: 300px;
     height: 300px;
     padding: 20px;
 }
 
-.nutrition .card h3{
+.nutrition .card h3 {
     color: orangered;
     font-size: 13px;
     padding: 2px;
@@ -341,51 +319,46 @@ header ul li a{
     font-weight: 400;
 }
 
+
 /*---------------Styling of Contact-Us Section --------------*/
 
-.contact-us{
+.contact-us {
     display: flex;
     position: relative;
-    margin: 0;
-    padding: 0;
     width: 100%;
+    top: -100px;
     min-height: 100vh;
     transition: 0.1s;
 }
 
-.contact-us .container2{
+.contact-us .container2 {
     display: flex;
     position: relative;
+    top: 50px;
     flex-direction: column;
     width: 100%;
-    margin: 0;
-    padding: 0;
     transition: 0.1s;
-
 }
 
-.contact-us .container2 .banner2{
+.contact-us .container2 .banner2 {
     display: flex;
     flex-direction: column;
     width: 100%;
     transition: 0.1s;
-
 }
 
-.contact-us .container2 .banner2 img{
+.contact-us .container2 .banner2 img {
     width: 100%;
     transition: 0.1s;
-
 }
 
-.contact-us .container2 .banner2 div{
+.contact-us .container2 .banner2 div {
     width: 100%;
     position: absolute;
     color: white;
 }
 
-.contact-us .container2 .banner2 div h2
-{
+.contact-us .container2 .banner2 div h2 {
     position: relative;
     display: flex;
     font-size: 40px;
@@ -394,8 +367,7 @@ header ul li a{
     justify-content: center;
 }
 
-.contact-us .container2 .banner2 div h4
-{
+.contact-us .container2 .banner2 div h4 {
     position: relative;
     display: flex;
     font-size: 20px;
@@ -404,20 +376,20 @@ header ul li a{
     font-weight: 300;
 }
 
-.contact-us .container2 .box2{
+.contact-us .container2 .box2 {
     display: flex;
     flex-direction: row;
     position: relative;
     margin-left: 100px;
     margin-right: 100px;
     background: white;
-    box-shadow: 0px 1px 20px 2px rgba(0,0,0,0.1);
+    box-shadow: 0px 1px 20px 2px rgba(0, 0, 0, 0.1);
     top: -250px;
     transition: 0.1s;
     border-radius: 5px;
 }
 
-.contact-us .container2 .box2 form{
+.contact-us .container2 .box2 form {
     display: flex;
     position: relative;
     transition: 0.1s;
@@ -426,53 +398,53 @@ header ul li a{
     padding: 50px;
 }
 
-.contact-us .container2 .box2 form div{
-   display: flex;
-   padding: 20px;
-   width: 50%;
-   transition: 0.1s;
-   position: relative;
-   flex-direction: column;
+.contact-us .container2 .box2 form div {
+    display: flex;
+    padding: 10px;
+    width: 50%;
+    transition: 0.1s;
+    position: relative;
+    flex-direction: column;
 }
 
-.contact-us .container2 .box2 form div label{
+.contact-us .container2 .box2 form div label {
     display: flex;
     position: relative;
     transition: 0.1s;
     font-size: 13px;
 }
 
-.contact-us .container2 .box2 form div input{
+.contact-us .container2 .box2 form div input {
     display: flex;
     position: relative;
-    border: none;   
+    border: none;
     padding: 5px;
     outline: none;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.contact-us .container2 .box2 form div input::placeholder{
+.contact-us .container2 .box2 form div input::placeholder {
     position: relative;
     opacity: 0.5;
 }
 
-.contact-us .container2 .box2 textarea{
+.contact-us .container2 .box2 textarea {
     display: flex;
     position: relative;
     border: none;
     outline: none;
     transition: 0.1s;
     width: 100%;
-    margin-left: 20px;
-    margin-right: 20px;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+    margin-left: 10px;
+    margin-right: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.contact-us .container2 .box2 textarea::placeholder{
+.contact-us .container2 .box2 textarea::placeholder {
     opacity: 0.5;
 }
 
-.contact-us .container2 .box2 .btn{
+.contact-us .container2 .box2 .btn {
     display: flex;
     position: relative;
     width: 200px;
@@ -489,11 +461,11 @@ header ul li a{
     color: white;
 }
 
-.contact-us .container2 .box2 .btn:hover{
+.contact-us .container2 .box2 .btn:hover {
     background-image: linear-gradient(to right, orangered, rgb(163, 4, 4));
 }
 
-.contact-us .container2 .box2 .address{
+.contact-us .container2 .box2 .address {
     display: flex;
     position: relative;
     flex-direction: column;
@@ -506,21 +478,21 @@ header ul li a{
     background-image: linear-gradient(to right, orange, orangered);
 }
 
-.contact-us .container2 .box2 .address div{
+.contact-us .container2 .box2 .address div {
     display: flex;
     position: relative;
     flex-direction: row;
     color: white;
 }
 
-.contact-us .container2 .box2 .address div i{
+.contact-us .container2 .box2 .address div i {
     position: relative;
     font-size: 20px;
     padding-top: 30px;
     margin-right: 20px;
 }
 
-.contact-us .container2 .box2 .address div h4{
+.contact-us .container2 .box2 .address div h4 {
     position: relative;
     font-size: 15px;
     padding-top: 25px;
@@ -529,8 +501,10 @@ header ul li a{
     margin-right: 20px;
 }
 
+
 /*------------------- Footer -----------------*/
-.footer{
+
+.footer {
     background-image: linear-gradient(to right, orange, orangered);
     display: flex;
     position: relative;
@@ -541,19 +515,18 @@ header ul li a{
     padding-left: 100px;
 }
 
-.footer .social-media
-{
+.footer .social-media {
     display: flex;
     position: relative;
     flex-direction: column;
 }
 
-.footer .social-media h3{
+.footer .social-media h3 {
     color: white;
     padding: 10px;
 }
 
-.footer .social-media div{
+.footer .social-media div {
     display: flex;
     position: relative;
     flex-direction: row;
@@ -562,40 +535,40 @@ header ul li a{
     align-items: flex-end;
 }
 
-.footer .social-media div a{
+.footer .social-media div a {
     text-decoration: none;
     color: white;
     font-size: 20px;
     padding: 10px;
 }
 
-.footer .quick-links{
+.footer .quick-links {
     display: flex;
     position: relative;
     flex-direction: column;
 }
 
-.footer .quick-links h3{
+.footer .quick-links h3 {
     color: white;
     padding: 10px;
 }
 
-.footer .quick-links ul{
+.footer .quick-links ul {
     display: flex;
     position: relative;
     list-style: none;
 }
 
-.footer .quick-links ul li{
+.footer .quick-links ul li {
     padding: 10px;
 }
 
-.footer .quick-links ul li a{
+.footer .quick-links ul li a {
     text-decoration: none;
     color: white;
 }
 
-.footer .copyright{
+.footer .copyright {
     display: flex;
     flex-direction: column;
     position: relative;
