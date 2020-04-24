@@ -106,9 +106,9 @@ header ul li a {
 
 .banner {
     position: relative;
-    min-height: 100vh;
     transition: 0.5s;
     width: 100%;
+    height: 780px;
     justify-content: center;
     background-image: url('/images/Gallery/caraousel/man-muscular-back.jpg');
     box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.2);
@@ -128,9 +128,10 @@ header ul li a {
 .banner .content p {
     position: relative;
     color: white;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 0;
+    font-weight: 300;
+    width: 600px;
+    line-height: 2px;
+    line-height: 1.2em;
 }
 
 .banner .content h2 {
@@ -140,25 +141,49 @@ header ul li a {
     font-size: 60px;
 }
 
-.banner .content button {
+.banner .content .cta {
+    display: flex;
+    flex-direction: row;
+}
+
+.banner .content .buttons .btn {
     display: flex;
     justify-content: center;
     position: relative;
-    width: 150px;
-    background-image: linear-gradient(to right, orange, orangered);
+    font-weight: 300;
+    width: 200px;
     outline: none;
     border: none;
     margin-top: 30px;
-    border-radius: 30px;
+    margin-right: 20px;
+}
+
+.banner .content button a {
+    margin: 0;
+    padding: 5px;
+    font-size: 20px;
+    letter-spacing: 0.01em;
+    color: black;
+    font-weight: 300;
+    text-align: right;
+    text-decoration: none;
+}
+
+.banner .content .cta .btn:hover,
+.banner .content .cta a:hover {
+    color: white;
+    background-color: rgb(250, 101, 46);
 }
 
 .banner p.text {
     position: absolute;
     top: 0px;
     z-index: 100;
-    font-size: 340px;
+    font-size: 240px;
     font-weight: 700;
     color: white;
+    width: 100%;
+    text-align: center;
 }
 
 .transparent {
@@ -178,19 +203,151 @@ header ul li a {
     top: 0px;
 }
 
-.banner .content button:hover {
-    background-image: linear-gradient(to right, orangered, red);
+
+/*Customizing Tips Section in website */
+
+.tips-container {
+    display: flex;
+    flex-direction: column;
+    padding: 80px 80px;
+    align-items: center;
 }
 
-.banner .content button a {
-    margin: 0;
-    padding: 10px;
-    font-size: 20px;
-    color: white;
-    font-weight: 700;
-    text-align: right;
-    text-decoration: none;
+.tips-container h1 {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
 }
+
+.tips-container hr {
+    border: none;
+    border: 2px solid orangered;
+    width: 200px;
+    margin: 10px 0 20px 0;
+    border-width: 2px;
+    outline: none;
+}
+
+.tips-container .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.tips-container .box {
+    padding: 10px;
+    width: 25%;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.tips-container .box img {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.tips-container article {
+    font-size: 14px;
+}
+
+
+/* Customizing Membership Offer Contents*/
+
+.membership {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    padding: 60px 80px;
+    align-items: center;
+}
+
+.membership .heading {
+    color: orange;
+    position: relative;
+    top: -30px;
+    letter-spacing: 0.02em;
+    font-weight: 600;
+    font-size: 45px;
+}
+
+.membership .offer-box {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+.membership .offer-box .price-card {
+    background: white;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    align-items: center;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.membership .offer-box .price-card .pricetag {
+    border-radius: 100px;
+    height: 150px;
+    width: 150px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.membership .offer-box .price-card button {
+    background: orange;
+    width: 150px;
+}
+
+.membership .offer-box .price-card:hover .pricetag,
+.membership .offer-box .price-card:hover button {
+    background-color: orangered;
+    color: white;
+}
+
+.membership .offer-box .price-card button:hover {
+    box-shadow: 0px 0px 20px 1px rgba(255, 0, 0, 0.5);
+}
+
+.membership .offer-box .price-card .pricetag h1 {
+    position: relative;
+    display: flex;
+}
+
+.membership .offer-box .price-card .pricetag span {
+    font-size: 12px;
+    position: relative;
+    top: 10px;
+}
+
+.membership .offer-box .price-card .benefits {
+    margin: 20px 0;
+}
+
+.membership .offer-box .price-card .benefits p {
+    margin: 2px;
+}
+
+.membership .offer-box .price-card .benefits hr {
+    border: none;
+    border: 1px solid #f0f0f1;
+}
+
+
+/*Customizing About Us Section*/
 
 .about-us {
     padding: 20px;
@@ -199,8 +356,8 @@ header ul li a {
     justify-content: center;
     width: 100%;
     margin: auto;
-    min-height: 100vh;
     transition: 0.2s;
+    height: 600px;
 }
 
 .about-us .content {
@@ -229,28 +386,33 @@ header ul li a {
 }
 
 .about-us p {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 
 /* ----------------------------*/
 
-.block {
+.features {
+    display: flex;
     width: 100%;
     position: relative;
     flex-direction: column;
-    min-height: 500px;
-    background: url(../images/dumbell.jpg);
+    min-height: 600px;
+    background: url(../images/dumbell.jpg) no-repeat;
+    background-size: cover;
+    z-index: 10;
+    background-attachment: fixed;
+    box-shadow: 0px 1px 15px 1px rgba(0, 0, 0, 0.1);
 }
 
-.block h2 {
+.features>h2 {
     position: relative;
     color: white;
     padding-top: 20px;
     padding-left: 350px;
 }
 
-.block .text-bold {
+.features .text-bold {
     padding-top: 100px;
     position: relative;
     font-size: 60px;
@@ -259,36 +421,31 @@ header ul li a {
     color: orange;
 }
 
-.features {
-    margin-left: 200px;
-    margin-right: 200px;
-    top: -300px;
-    background: white;
-    display: flex;
-    position: relative;
-    box-shadow: 0px 1px 15px 1px rgba(0, 0, 0, 0.1);
-}
-
 .features .container {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    text-align: center;
-    justify-content: space-between;
+    justify-content: center;
+    position: relative;
 }
 
 .features .card {
     margin: 0px;
     display: flex;
     padding: 30px;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
     position: relative;
+    width: 28%;
     background: WHITE;
     border-right: 1px solid rgba(0, 0, 0, 0.2);
     border-left: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.features .container .card h2 {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .features .card img {
@@ -303,45 +460,63 @@ header ul li a {
 }
 
 
-/******************----CSS for the Nutrition Blocks------------**********/
+/*Styling of Time Table*/
 
-.nutrition {
-    display: flex;
+.timetable {
     width: 100%;
-    margin-top: 100px;
-    min-height: 100vh;
-    padding: 80px 20px 20px 20px;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 100px;
-}
-
-.nutrition .card {
-    margin: 30px 10px 30px 10px;
-    position: relative;
     display: flex;
-    background: white;
-    color: black;
+    position: relative;
+    margin-bottom: 100px;
+    padding: 40px;
     flex-direction: column;
-    text-align: center;
-    flex-wrap: wrap;
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.1);
-    justify-content: space-between;
+    color: white;
+    background-image: linear-gradient(to right, orange, orangered);
 }
 
-.nutrition .card img {
-    width: 300px;
-    height: 300px;
-    padding: 20px;
+.timetable h1 {
+    font-size: 45px;
 }
 
-.nutrition .card h3 {
+.timetable h1 span {
+    font-size: 50px;
     color: orangered;
-    font-size: 13px;
-    padding: 2px;
-    margin-bottom: 10px;
-    font-weight: 400;
+}
+
+.timetable table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    color: white;
+    border: 1px dotted#ddd;
+}
+
+table,
+td,
+tr {
+    border: 1px solid orange;
+}
+
+td,
+tr,
+th {
+    padding: 15px 10px;
+}
+
+th {
+    border: 1px solid white;
+    background-color: orange;
+}
+
+td:hover,
+th:hover {
+    background-color: orange;
+}
+
+.filled {
+    background-color: white;
+    color: black;
 }
 
 
@@ -352,8 +527,8 @@ header ul li a {
     position: relative;
     width: 100%;
     top: -100px;
-    min-height: 100vh;
     transition: 0.1s;
+    height: 700px;
 }
 
 .contact-us .container2 {
@@ -381,6 +556,7 @@ header ul li a {
     width: 100%;
     position: absolute;
     color: white;
+    top: 30px;
 }
 
 .contact-us .container2 .banner2 div h2 {
@@ -388,7 +564,6 @@ header ul li a {
     display: flex;
     font-size: 40px;
     transition: 0.1s;
-    padding-top: 30px;
     justify-content: center;
 }
 
@@ -404,12 +579,12 @@ header ul li a {
 .contact-us .container2 .box2 {
     display: flex;
     flex-direction: row;
-    position: relative;
+    position: absolute;
     margin-left: 100px;
     margin-right: 100px;
     background: white;
     box-shadow: 0px 1px 20px 2px rgba(0, 0, 0, 0.1);
-    top: -250px;
+    top: 150px;
     transition: 0.1s;
     border-radius: 5px;
 }
@@ -524,6 +699,55 @@ header ul li a {
     font-style: normal;
     font-weight: 300;
     margin-right: 20px;
+}
+
+
+/*Subscribe for Newsletter Section*/
+
+.newsletter {
+    display: flex;
+    flex-direction: column;
+    padding: 80px 100px;
+    align-items: center;
+    background: url("../images/Gallery/caraousel/muscular-guy-six-pack-HD.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+    height: 400px;
+    background-position: center;
+}
+
+.newsletter h1 {
+    font-size: 45px;
+}
+
+.newsletter .input {
+    align-items: center;
+    margin-top: 20px;
+    background: white;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsletter .input input {
+    outline: none;
+    border: none;
+    padding-right: 10px;
+    width: 300px;
+    font-size: 16px;
+}
+
+.newsletter .input .subscribe {
+    background: black;
+    color: white;
+    width: 150px;
+}
+
+.newsletter .input .subscribe:hover {
+    background: orangered;
 }
 
 
@@ -736,7 +960,6 @@ article {
     display: flex;
     flex-direction: row;
     margin-bottom: 52px;
-    min-height: 100vh;
     width: 100%;
     margin-top: 0px;
     align-items: center;
@@ -775,5 +998,46 @@ article {
 }
 
 .transparent-bg {
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(255, 109, 42, 0.8);
+}
+
+
+/******************----CSS for the Nutrition Blocks------------**********/
+
+.nutrition {
+    display: flex;
+    width: 100%;
+    margin-top: 100px;
+    padding: 80px 20px 20px 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 100px;
+}
+
+.nutrition .card {
+    margin: 30px 10px 30px 10px;
+    position: relative;
+    display: flex;
+    background: white;
+    color: black;
+    flex-direction: column;
+    text-align: center;
+    flex-wrap: wrap;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+}
+
+.nutrition .card img {
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+}
+
+.nutrition .card h3 {
+    color: orangered;
+    font-size: 13px;
+    padding: 2px;
+    margin-bottom: 10px;
+    font-weight: 400;
 }
