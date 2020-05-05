@@ -33,6 +33,7 @@
     <meta property="og:site_name" content="Fitness Edge" />
 
     <link rel="icon" href="images/logo.png">
+    <link rel="stylesheet" href="css/modal_style.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
     <link rel="stylesheet" type="text/css" href="css/hover.css" media="all">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -51,6 +52,104 @@
             <a href="#"><i class="fa fa-whatsapp"></i></a>
         </div>
     </aside>
+
+    <div class="cd-signin-modal js-signin-modal">
+        <!-- this is the entire modal form, including the background -->
+        <div class="cd-signin-modal__container">
+            <!-- this is the container wrapper -->
+            <ul class="cd-signin-modal__switcher js-signin-modal-switcher js-signin-modal-trigger">
+                <li><a href="#0" data-signin="login" data-type="login">Sign in</a></li>
+                <li><a href="#0" data-signin="signup" data-type="signup">New account</a></li>
+            </ul>
+
+            <div class="cd-signin-modal__block js-signin-modal-block" data-type="login">
+                <!-- log in form -->
+                <form class="cd-signin-modal__form">
+                    <p class="cd-signin-modal__fieldset">
+                        <label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="signin-email">E-mail</label>
+                        <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signin-email" type="email" placeholder="E-mail">
+                        <span class="cd-signin-modal__error">Error message here!</span>
+                    </p>
+
+                    <p class="cd-signin-modal__fieldset">
+                        <label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signin-password">Password</label>
+                        <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signin-password" type="text" placeholder="Password">
+                        <a href="#0" class="cd-signin-modal__hide-password js-hide-password">Hide</a>
+                        <span class="cd-signin-modal__error">Error message here!</span>
+                    </p>
+
+                    <p class="cd-signin-modal__fieldset">
+                        <input type="checkbox" id="remember-me" checked class="cd-signin-modal__input ">
+                        <label for="remember-me">Remember me</label>
+                    </p>
+
+                    <p class="cd-signin-modal__fieldset">
+                        <input class="cd-signin-modal__input cd-signin-modal__input--full-width" type="submit" value="Login" onclick="login();">
+                    </p>
+                </form>
+
+                <p class="cd-signin-modal__bottom-message js-signin-modal-trigger"><a href="#0" data-signin="reset">Forgot your password?</a></p>
+            </div>
+            <!-- cd-signin-modal__block -->
+
+            <div class="cd-signin-modal__block js-signin-modal-block" data-type="signup">
+                <!-- sign up form -->
+                <form class="cd-signin-modal__form">
+                    <p class="cd-signin-modal__fieldset">
+                        <label class="cd-signin-modal__label cd-signin-modal__label--username cd-signin-modal__label--image-replace" for="signup-username">Username</label>
+                        <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signup-username" type="text" placeholder="Username">
+                        <span class="cd-signin-modal__error">Error message here!</span>
+                    </p>
+
+                    <p class="cd-signin-modal__fieldset">
+                        <label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="signup-email">E-mail</label>
+                        <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signup-email" type="email" placeholder="E-mail">
+                        <span class="cd-signin-modal__error">Error message here!</span>
+                    </p>
+
+                    <p class="cd-signin-modal__fieldset">
+                        <label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signup-password">Password</label>
+                        <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signup-password" type="text" placeholder="Password">
+                        <a href="#0" class="cd-signin-modal__hide-password js-hide-password">Hide</a>
+                        <span class="cd-signin-modal__error">Error message here!</span>
+                    </p>
+
+                    <p class="cd-signin-modal__fieldset">
+                        <input type="checkbox" id="accept-terms" class="cd-signin-modal__input ">
+                        <label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+                    </p>
+
+                    <p class="cd-signin-modal__fieldset">
+                        <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding" type="submit" value="Create account" id="registerNewUser-btn">
+                    </p>
+                </form>
+            </div>
+            <!-- cd-signin-modal__block -->
+
+            <div class="cd-signin-modal__block js-signin-modal-block" data-type="reset">
+                <!-- reset password form -->
+                <p class="cd-signin-modal__message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+
+                <form class="cd-signin-modal__form">
+                    <p class="cd-signin-modal__fieldset">
+                        <label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="reset-email">E-mail</label>
+                        <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="reset-email" type="email" placeholder="E-mail">
+                        <span class="cd-signin-modal__error">Error message here!</span>
+                    </p>
+
+                    <p class="cd-signin-modal__fieldset">
+                        <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding" type="submit" value="Reset password">
+                    </p>
+                </form>
+
+                <p class="cd-signin-modal__bottom-message js-signin-modal-trigger"><a href="#0" data-signin="login">Back to log-in</a></p>
+            </div>
+            <!-- cd-signin-modal__block -->
+            <a href="#0" class="cd-signin-modal__close js-close">Close</a>
+        </div>
+        <!-- cd-signin-modal__container -->
+    </div>
+
     <header id="Header">
         <img src="images/logo.png" alt="" class="logo">
         <ul>
@@ -61,6 +160,19 @@
             <li><a href="about-us.html">About Us</a></li>
             <li><a href="nutrition.html">Nutrition</a></li>
         </ul>
+        <nav class="cd-main-nav js-main-nav">
+            <ul class="cd-main-nav__list js-signin-modal-trigger">
+                <!-- inser more links here -->
+                <li id="login-btn" style="display: none;"><a class="cd-main-nav__item cd-main-nav__item--signin btn round btn-dark" href="#login" data-signin="login">Sign in</a></li>
+                <li id="signup-btn" style="display: none;"><a class="cd-main-nav__item cd-main-nav__item--signup btn round btn-orange" href="#signup" data-signin="signup">Sign up</a></li>
+                <li id="user-avatar" style="display: none;">
+                    <a href="edit-profile.html" id="username-display" style="text-decoration:underline" class="btn round">Username</a>
+                </li>
+                <li id="logout-btn" style="display: none;">
+                    <a href="" class="btn round" onclick="logout();">Logout</a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <!--It contains the Banner for the Website-->
@@ -399,25 +511,25 @@
                 <form action="#">
                     <div>
                         <label for="fname">Full Name</label>
-                        <input type="text" name="fname" id="fname" placeholder="e.g. Aman Tandon">
+                        <input type="text" name="fname" id="fname" placeholder="e.g. Aman Tandon" required>
                     </div>
                     <div>
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="e.g. ronie23@gmail.com">
+                        <input type="email" name="email" id="email" placeholder="e.g. ronie23@gmail.com" required>
                     </div>
                     <div>
                         <label for="mobile">Mobile</label>
-                        <input type="number" name="mobile" id="mobile" placeholder="e.g. +916388728098">
+                        <input type="number" name="mobile" id="mobile" placeholder="e.g. +916388728098" required>
                     </div>
                     <div>
                         <label for="subject">Subject</label>
-                        <input type="text" name="subect" id="subject" placeholder="e.g. Query for Gym Subscription">
+                        <input type="text" name="subect" id="subject" placeholder="e.g. Query for Gym Subscription" required>
                     </div>
                     <div>
                         <label for="message">Message</label>
                     </div>
-                    <textarea rows="2" cols="80" name="message" id="message" placeholder="Brief your message here"></textarea>
-                    <input type="submit" class="btn">
+                    <textarea rows="2" cols="80" name="message" id="message" placeholder="Brief your message here" required></textarea>
+                    <input type="submit" class="btn" id="submit-query">
                 </form>
                 <div class="address">
                     <h3>REACH US ON</h3>
@@ -443,10 +555,10 @@
     <section class="newsletter">
         <h1>SUBSCRIBE US FOR NEWSLETTER</h1>
         <p>We will inform you about our latest posts, news offers and achievements.</p>
-        <div class="input">
-            <input type="email" placeholder="Enter Your Email Id here" required>
-            <button class="btn subscribe">SUBSCRIBE US</button>
-        </div>
+        <form class="input">
+            <input type="email" placeholder="Enter Your Email Id here" id="subscriber-email" required>
+            <button class="btn subscribe" type="submit" id="subscribe-btn">SUBSCRIBE US</button>
+        </form>
     </section>
 
     <!--Footer-->
@@ -477,6 +589,18 @@
         </div>
 
     </section>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+    <script></script>
+    <!-- cd-signin-modal -->
+    <script src="javascript/placeholders.min.js"></script>
+    <!-- polyfill for the HTML5 placeholder attribute -->
+    <script src="javascript/main.js"></script>
+    <script src="javascript/index.js"></script>
+    <!-- Resource JavaScript -->
     <!--Scripts For Lazy loading Animations-->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
@@ -501,6 +625,24 @@
                 header.classList.remove("sticky");
             }
         }
+    </script>
+    <script>
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                document.getElementById('login-btn').style.display = "none";
+                document.getElementById('signup-btn').style.display = "none";
+                document.getElementById('logout-btn').style.display = "block";
+                document.getElementById('user-avatar').style.display = "block";
+                document.getElementById('username-display').innerText = user.displayName;
+            } else {
+                // No user is signed in.
+                document.getElementById('logout-btn').style.display = "none";
+                document.getElementById('user-avatar').style.display = "none";
+                document.getElementById('login-btn').style.display = "block";
+                document.getElementById('signup-btn').style.display = "block";
+            }
+        });
     </script>
 </body>
 

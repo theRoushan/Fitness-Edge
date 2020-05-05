@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <section class="main-container">
+        <aside class="" id="sidebar">
+            <div class="heading">
+                <h3>Fitness Edge</h3>
+            </div>
+            <div class="logged-user">
+                <div class="user-avatar">
+                    <img src="images/Gallery/award4.webp" alt="" height="50px" width="50px" style="border-radius: 30px;" id="user-profile-image">
+                </div>
+                <div class="user-avatar-display">
+                    <h5 id="salutation">Welcome,</h5>
+                    <h5 id="displayName">Roushan Kumar</h5>
+                </div>
+                <div class="logout">
+                    <a href="" class="logout-btn" onclick="logout();"><i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </div>
+            <div class="not-logged-user">
+                <div class="user-avatar">
+                    <img src="images/Gallery/award4.webp" alt="" height="50px" width="50px" style="border-radius: 30px;" id="user-profile-image">
+                </div>
+                <div class="user-avatar-display">
+                    <h5>Hello, Guest</h5>
+                    <h5>
+                        <a href="#login-panel" data-id='login-panel'>Login</a> to Continue</h5>
+                </div>
+            </div>
+            <ul class="dashboard-links">
+                <li class="logged-user" data-id='tab1'><a href="#"><i class="fas fa-home"></i>Dashboard</a></li>
+                <li class="logged-user" data-id='tab2'><a href="#"><i class="fas fa-user"></i>Profile</a></li>
+                <li class="logged-user" data-id='tab3'><a href="#"><i class="fas fas fa-user-friends"></i>Members</a></li>
+                <li class="logged-user" data-id='tab4'><a href="#"><i class="fas fa-calendar-alt"></i>Attendance</a></li>
+                <li class="logged-user" data-id='tab5'><a href="#"><i class="fas fa-question-circle"></i>Queries</a></li>
+                <li class="logged-user" data-id='tab6'><a href="#"><i class="fas fa-address-card"></i>Subscribers</a></li>
+                <li data-id='tab7'><a href="#"><i class="fas fa-info-circle"></i>About</a></li>
+                <li data-id='tab8'><a href="#"><i class="fas fa-phone"></i>Contact Us</a></li>
+            </ul>
+        </aside>
+        <main class="" id="main">
+            <header id="header">
+                <i class="fas fa-bars" onclick="hamburger();"></i>
+                <h2 style="color: orange;">Fitness Edge Admin Panel</h2>
+                <div class="clock">
+                    <h3 class="time" id="time"></h3>
+                    <h3 class="date" id="date"></h3>
+                </div>
+            </header>
+            <div class="content-container" id="main-content">
+                <div class="login-panel" id="login-panel" style="display: none;">
+                    <div class="login-panel-modal">
+                        <h3>ADMIN ACCESS</h3>
+                        <form class="form">
+                            <img src="images/logo_black.png" alt="" height="80px" width="100px">
+                            <div class="input-field">
+                                <div class="email-input">
+                                    <input type="email" placeholder="Email Id" required id="login-email" autocomplete="username">
+                                </div>
+                                <div class="password-input">
+                                    <input type="password" placeholder="Password" required id="login-pass" autocomplete="current-password">
+                                </div>
+                            </div>
+                            <input type="submit" value="Login" id="form-login-btn">
+                        </form>
+                    </div>
+                </div>
+                <div id="tab1" class="dashboard">
+                    <div class="dashboard-container">
+                        <h1 style="margin-left: 20px; text-decoration: underline;">Dashboard</h1>
+                        <div class="card-box">
+                            <div class="card bg-orangered">
+                                <p class="count" id="total-users-count"></p>
+                                <h2 class="card-title">Total Users</h2>
+                            </div>
+                            <div class="card bg-orange">
+                                <p class="count" id="total-members-count"></p>
+                                <h2 class="card-title">Total Members</h2>
+                            </div>
+                            <div class="card bg-green">
+                                <p class="count" id="total-new-users-count"></p>
+                                <h2 class="card-title">New Users Today</h2>
+                            </div>
+                            <div class="card bg-royalblue">
+                                <p class="count" id="expired-membership-count"></p>
+                                <h2 class="card-title">Expired Membership</h2>
+                            </div>
+                        </div>
+                        <div class="manage">
+                            <div class="make-admin">
+                                <h2>Add a new Admin</h2>
+                                <div class="input">
+                                    <input type="email" placeholder="Enter email to make admin" id="make-email-admin">
+                                    <button class="submit-btn" id="verify-admin">Verify Account</button>
+                                </div>
+                            </div>
+                            <div class="make-member">
+                                <h2>Add a new Member</h2>
+                                <div class="input">
+                                    <input type="email" placeholder="Enter email to make member" id="make-email-member">
+                                    <button class="submit-btn" id="verify-member">Verify Account</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="updateRole" style="display:none">
+                            <h1 id="purposeOfRole"> Verify Account</h1>
+                            <div class="input">
+                                <div class="input admin">
+                                    <label for="userId">User ID : </label>
+                                    <input type="text" name="userId" placeholder="User Id" id="updateRoleUserId" readonly>
+                                </div>
+                                <div class="input admin">
+                                    <label for="username">Username : </label>
+                                    <input type="text" name="username" placeholder="Username" id="updateRoleUsername" readonly>
+                                </div>
+                                <div class="input admin">
+                                    <label for="email">Email :</label>
+                                    <input type="email" name="userEmail" placeholder="User Email" id="updateRoleUserEmail" readonly>
+                                </div>
+                                <div class="input member">
+                                    <label for="membershipPlan">Membership Plan</label>
+                                    <input type="text" name="membershipPlan" placeholder="Membership Plan Name" id="updateRoleUserMembershipPlan">
+                                </div>
+                                <div class="input member">
+                                    <label for="membershipAmountPaid">Amount Paid</label>
+                                    <input type="text" name="membershipAmountPaid" placeholder="Membership Amount Paid" id="updateRoleUserMembershipAmount">
+                                </div>
+                            </div>
+                            <button class="submit-btn" id="make-admin">Make Admin</button>
+                            <button class="submit-btn member" id="make-member">Make Member</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab2" class="profile">
+                    <div class="profile-container">
+                        <div class="user-card">
+                            <img src="https://pbs.twimg.com/profile_images/1188862628388458500/OhE04X-1_400x400.jpg" alt="user-profile-image" height="150px" width="150px" style="border: 1px solid #ddd; border-radius: 75px; margin-bottom: 5px;" id="user-profile-image">
+                            <p id="user-display-name" style="margin-bottom: 3px;">Roushan Kumar</p>
+                            <b class="hr" style="margin-bottom: 3px;"></b>
+                            <h5 id="user-role" style="margin-bottom: 3px;">Administrator and CEO</h5>
+                        </div>
+                        <div class="form">
+                            <h2>User Information</h2>
+                            <div class="personal-details">
+                                <h4 class="panel">Personal Details</h4>
+                                <div class="form-content">
+                                    <div class="input form-username-area" aria-disabled="false">
+                                        <label for="username">Username: </label>
+                                        <input type="text" name="username" id="username" placeholder="Username">
+                                    </div>
+                                    <div class="input form-fullname-area">
+                                        <label for="fullname">Full Name: </label>
+                                        <input type="text" name="fullname" id="fullName" placeholder="Your Full Name">
+                                    </div>
+                                    <div class="input form-email-area">
+                                        <label for="email">Email: </label>
+                                        <input type="email" name="email" id="email" placeholder="Email Address">
+                                    </div>
+                                    <div class="input form-photo-area">
+                                        <label for="photo-url">Photo URL: </label>
+                                        <input type="url" name="photo-url" id="photoURL" placeholder="Your Profile Photo URL">
+                                    </div>
+                                    <div class="input form-mobile-area">
+                                        <label for="mobile">Mobile: </label>
+                                        <input type="number" name="mobile" id="mobile" placeholder="Mobile Number">
+                                    </div>
+                                    <div class="input form-dob-area">
+                                        <label for="dob">DOB: </label>
+                                        <input type="text" name="dob" id="dob" placeholder="DD/MM/YYYY">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="address-details">
+                                <h4 class="panel">Communication Address</h4>
+                                <div class="input form-address-locality-area">
+                                    <label for="locality">Locality: </label>
+                                    <input type="text" name="locality" id="locality" placeholder="Street, Village">
+                                </div>
+                                <div class="input form-address-adress1">
+                                    <label for="address1">Address1: </label>
+                                    <input type="text" name="address1" id="address1" placeholder="Address 1">
+                                </div>
+                                <div class="input form-address-city">
+                                    <label for="city">City: </label>
+                                    <input type="text" name="city" id="city" placeholder="City">
+                                </div>
+                                <div class="input form-address-state">
+                                    <label for="state">State: </label>
+                                    <input type="text" name="state" id="state" placeholder="State">
+                                </div>
+                                <div class="input form-address-country">
+                                    <label for="country">Country: </label>
+                                    <input type="text" name="country" id="country" placeholder="Country">
+                                </div>
+                                <div class="buttons">
+                                    <button class="btn bg-royalblue" id="edit-user-information">Edit <i class=" fas fa-edit"></i></button>
+                                    <button class="btn bg-green" id="save-user-information">Save <i class="fas fa-save"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab3" class="members">
+                    <h1>ATAS</h1>
+                </div>
+                <div id="tab4" class="attendance">
+                    <div class="attendance-container">
+                        <h1>Todays Attendance</h1>
+                        <div class="card-box">
+                            <div class="card bg-orange">
+                                <p id="total-members-count-attendance"></p>
+                                <h2>Total Members</h2>
+                            </div>
+                            <div class="card bg-green">
+                                <p id="total-present-attendance"></p>
+                                <h2>Present</h2>
+                            </div>
+                            <div class="card bg-orangered">
+                                <p id="total-absent-attendance"></p>
+                                <h2>Absent</h2>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="tab5" class="queries">
+                    <div class="queries-container">
+                        <h1>Queries</h1>
+                        <div class="table">
+                            <table id="queries-table">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab6" class="subscribers">
+                    <div class="subscribers-container">
+                        <h1>Email Subscribers</h1>
+                        <table id="subscribers-table">
+                        </table>
+                    </div>
+                </div>
+                <div class="about-us" id="tab7">
+                    <img src="https://pbs.twimg.com/profile_images/1188862628388458500/OhE04X-1_400x400.jpg" height="200px" width="200px" alt="Author" style="border: 1px solid #ddd; border-radius: 100px;">
+                    <h3>Designed and Maintained by The Roushan</h3>
+                    <h5>Fitness Edge is an Gym Management System to access and manage the user data in efficient way and ease. For any Queries or Assistance Please Contact Me at
+                        <a class="email-link" href="mailto:support@theroushan.com">support@theroushan.com</a>.
+                    </h5>
+                </div>
+                <div class="contact-us" id="tab8">
+                    <h3>Contact Us</h3>
+                    <div class="box">
+                        <div class="content-card">
+                            <h4 style="font-size: 18px; margin-bottom: 15px;">Fitness Edge</h4>
+                            <p> <strong>Working Hour : </strong>5AM - 10PM Daily</p>
+                            <p><strong>Address: </strong> Audi More, xxx Colony, Near Gulmohar Road, Delhi, India</p>
+                            <p><strong>Telephone :</strong> +91xxxxxxxxxx</p>
+                        </div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRM42a2hXxpjtzBwromHC2DkKbAAK12U_xYlooNWc1P9_myU70T&usqp=CAU" alt="office-image" height="250px" width="350px">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+    <script src="javascript/jquery.min.js"></script>
+    <script src="javascript/placeholders.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+    <script src="javascript/index.js"></script>
+    <script src="javascript/admin-panel.js"></script>
+    <script>
+        display_ct();
+    </script>
+    <script>
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                user.getIdTokenResult().then(idTokenResult => {
+                    user.admin = idTokenResult.claims.admin;
+                    if (user.admin) {
+                        // User is signed in.
+                        showLoggedUserAccess();
+                        document.getElementById('login-panel').style.display = "none";
+                        document.getElementById('tab1').style.display = "flex";
+                    } else {
+                        // No user is signed in.
+                        logout();
+                    }
+                })
+            } else {
+                hideLoggedUserAccess();
+                document.getElementById('tab1').style.display = "none";
+                document.getElementById('login-panel').style.display = "flex";
+            }
+        });
+    </script>
+    <script>
+        $('.dashboard-links li').bind('click', function() {
+            var id = $(this).data('id');
+            //  $('.content-container div').removeClass('show');
+            //   $('#' + id).addClass('show');
+            $('.content-container>div').hide(200);
+            $('#' + id).show(400);
+        });
+        $('.user-avatar-display h5 a').bind('click', function(e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            //  $('.content-container div').removeClass('show');
+            //   $('#' + id).addClass('show');
+            $('.content-container>div').hide(200);
+            $('#' + id).show(400);
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+</html>
+
+</html>

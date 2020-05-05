@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
     <link rel="stylesheet" type="text/css" href="css/hover.css" media="all">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="css/modal_style.css">
     <link rel="icon" href="images/logo.png">
 </head>
 
 <body>
+    <!---It contains Header and navgation menu for the website-->
     <aside>
         <div>
             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -23,8 +24,106 @@
             <a href="#"><i class="fa fa-whatsapp"></i></a>
         </div>
     </aside>
+
+    <div class="cd-signin-modal js-signin-modal">
+        <!-- this is the entire modal form, including the background -->
+        <div class="cd-signin-modal__container">
+            <!-- this is the container wrapper -->
+            <ul class="cd-signin-modal__switcher js-signin-modal-switcher js-signin-modal-trigger">
+                <li><a href="#0" data-signin="login" data-type="login">Sign in</a></li>
+                <li><a href="#0" data-signin="signup" data-type="signup">New account</a></li>
+            </ul>
+
+            <div class="cd-signin-modal__block js-signin-modal-block" data-type="login">
+                <!-- log in form -->
+                <form class="cd-signin-modal__form">
+                    <p class="cd-signin-modal__fieldset">
+                        <label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="signin-email">E-mail</label>
+                        <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signin-email" type="email" placeholder="E-mail">
+                        <span class="cd-signin-modal__error">Error message here!</span>
+                    </p>
+
+                    <p class="cd-signin-modal__fieldset">
+                        <label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signin-password">Password</label>
+                        <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signin-password" type="text" placeholder="Password">
+                        <a href="#0" class="cd-signin-modal__hide-password js-hide-password">Hide</a>
+                        <span class="cd-signin-modal__error">Error message here!</span>
+                    </p>
+
+                    <p class="cd-signin-modal__fieldset">
+                        <input type="checkbox" id="remember-me" checked class="cd-signin-modal__input ">
+                        <label for="remember-me">Remember me</label>
+                    </p>
+
+                    <p class="cd-signin-modal__fieldset">
+                        <input class="cd-signin-modal__input cd-signin-modal__input--full-width" type="submit" value="Login" onclick="login();">
+                    </p>
+                </form>
+
+                <p class="cd-signin-modal__bottom-message js-signin-modal-trigger"><a href="#0" data-signin="reset">Forgot your password?</a></p>
+            </div>
+            <!-- cd-signin-modal__block -->
+
+            <div class="cd-signin-modal__block js-signin-modal-block" data-type="signup">
+                <!-- sign up form -->
+                <form class="cd-signin-modal__form">
+                    <p class="cd-signin-modal__fieldset">
+                        <label class="cd-signin-modal__label cd-signin-modal__label--username cd-signin-modal__label--image-replace" for="signup-username">Username</label>
+                        <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signup-username" type="text" placeholder="Username">
+                        <span class="cd-signin-modal__error">Error message here!</span>
+                    </p>
+
+                    <p class="cd-signin-modal__fieldset">
+                        <label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="signup-email">E-mail</label>
+                        <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signup-email" type="email" placeholder="E-mail">
+                        <span class="cd-signin-modal__error">Error message here!</span>
+                    </p>
+
+                    <p class="cd-signin-modal__fieldset">
+                        <label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signup-password">Password</label>
+                        <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signup-password" type="text" placeholder="Password">
+                        <a href="#0" class="cd-signin-modal__hide-password js-hide-password">Hide</a>
+                        <span class="cd-signin-modal__error">Error message here!</span>
+                    </p>
+
+                    <p class="cd-signin-modal__fieldset">
+                        <input type="checkbox" id="accept-terms" class="cd-signin-modal__input ">
+                        <label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+                    </p>
+
+                    <p class="cd-signin-modal__fieldset">
+                        <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding" type="submit" value="Create account" id="registerNewUser-btn">
+                    </p>
+                </form>
+            </div>
+            <!-- cd-signin-modal__block -->
+
+            <div class="cd-signin-modal__block js-signin-modal-block" data-type="reset">
+                <!-- reset password form -->
+                <p class="cd-signin-modal__message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+
+                <form class="cd-signin-modal__form">
+                    <p class="cd-signin-modal__fieldset">
+                        <label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="reset-email">E-mail</label>
+                        <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="reset-email" type="email" placeholder="E-mail">
+                        <span class="cd-signin-modal__error">Error message here!</span>
+                    </p>
+
+                    <p class="cd-signin-modal__fieldset">
+                        <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding" type="submit" value="Reset password">
+                    </p>
+                </form>
+
+                <p class="cd-signin-modal__bottom-message js-signin-modal-trigger"><a href="#0" data-signin="login">Back to log-in</a></p>
+            </div>
+            <!-- cd-signin-modal__block -->
+            <a href="#0" class="cd-signin-modal__close js-close">Close</a>
+        </div>
+        <!-- cd-signin-modal__container -->
+    </div>
+
     <header id="Header">
-        <img src="images/logo.png" alt="" class="logo" style="filter: invert(100%);">
+        <img src="images/logo.png" alt="" class="logo" style=" filter: invert(100%);">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="index.html#feature">Features</a></li>
@@ -33,41 +132,104 @@
             <li><a href="about-us.html">About Us</a></li>
             <li><a href="nutrition.html">Nutrition</a></li>
         </ul>
+        <nav class="cd-main-nav js-main-nav">
+            <ul class="cd-main-nav__list js-signin-modal-trigger">
+                <!-- inser more links here -->
+                <li id="login-btn" style="display: none;"><a class="cd-main-nav__item cd-main-nav__item--signin btn round btn-dark" href="#login" data-signin="login">Sign in</a></li>
+                <li id="signup-btn" style="display: none;"><a class="cd-main-nav__item cd-main-nav__item--signup btn round btn-orange" href="#signup" data-signin="signup">Sign up</a></li>
+                <li id="user-avatar" style="display: none;">
+                    <a href="edit-profile.html" id="username-display" style="text-decoration:underline" class="btn round">Username</a>
+                </li>
+                <li id="logout-btn" style="display: none;">
+                    <a href="" class="btn round" onclick="logout();">Logout</a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <!--It contains the Nutrition Guides and Articles for the Gym aspirants.-->
     <section class="nutrition" id="nutrition">
-        <div class="card hvr-sweep-to-bottom" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
+        <h1>Read Our Articles</h1>
+        <hr>
+        <div class="card" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
             <img src="images/Gallery/undraw_diet_ghvw (1).svg" alt="">
-            <h3>Calorie Counting Explained</h3>
+            <div class="content">
+                <h3>Calorie Counting Explained</h3>
+                <article>We want to help you live a fit and healthy lifestyle! We do this by providing you the most suitable equipment for your body workout, keeping your budget, lifestyle and fitness goals in mind. We have a wide range of gym equipment, with
+                    strength equipment, cardio, cross training and so much more. Our awesome team is always keen to help. At Fitness Edge, we believe that building a positive culture is incredibly important. The business is underpinned by six core values
+                    which speak of our commitment to our customers.
+                </article>
+            </div>
         </div>
-        <div class="card hvr-sweep-to-bottom" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="300">
+        <div class="card" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
             <img src="images/Gallery/water.jpg" alt="">
-            <h3>How to drink more Water</h3>
+            <div class="content">
+                <h3>How to drink more Water</h3>
+                <article>We want to help you live a fit and healthy lifestyle! We do this by providing you the most suitable equipment for your body workout, keeping your budget, lifestyle and fitness goals in mind. We have a wide range of gym equipment, with
+                    strength equipment, cardio, cross training and so much more. Our awesome team is always keen to help. At Fitness Edge, we believe that building a positive culture is incredibly important. The business is underpinned by six core values
+                    which speak of our commitment to our customers.
+                </article>
+            </div>
         </div>
-        <div class="card hvr-sweep-to-bottom" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="300">
+        <div class="card" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
             <img src="images/Gallery/undraw_wine_tasting_30vw.svg" alt="">
-            <h3>Alcohol and Fitness</h3>
+            <div class="content">
+                <h3>Alcohol and Fitness</h3>
+                <article>We want to help you live a fit and healthy lifestyle! We do this by providing you the most suitable equipment for your body workout, keeping your budget, lifestyle and fitness goals in mind. We have a wide range of gym equipment, with
+                    strength equipment, cardio, cross training and so much more. Our awesome team is always keen to help. At Fitness Edge, we believe that building a positive culture is incredibly important. The business is underpinned by six core values
+                    which speak of our commitment to our customers.
+                </article>
+            </div>
         </div>
-        <div class="card hvr-sweep-to-bottom" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="300">
+        <div class="card" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
             <img src="images/Gallery/undraw_Hamburger_8ge6.svg" alt="">
-            <h3>Why we need to eat more Fiber</h3>
+            <div class="content">
+                <h3>Why we need to eat more Fiber</h3>
+                <article>We want to help you live a fit and healthy lifestyle! We do this by providing you the most suitable equipment for your body workout, keeping your budget, lifestyle and fitness goals in mind. We have a wide range of gym equipment, with
+                    strength equipment, cardio, cross training and so much more. Our awesome team is always keen to help. At Fitness Edge, we believe that building a positive culture is incredibly important. The business is underpinned by six core values
+                    which speak of our commitment to our customers.
+                </article>
+            </div>
         </div>
-        <div class="card hvr-sweep-to-bottom" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="300">
+        <div class="card" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
             <img src="images/Gallery/undraw_breakfast_psiw.svg" alt="">
-            <h3>What to eat after ending a fast</h3>
+            <div class="content">
+                <h3>What to eat after ending a fast</h3>
+                <article>We want to help you live a fit and healthy lifestyle! We do this by providing you the most suitable equipment for your body workout, keeping your budget, lifestyle and fitness goals in mind. We have a wide range of gym equipment, with
+                    strength equipment, cardio, cross training and so much more. Our awesome team is always keen to help. At Fitness Edge, we believe that building a positive culture is incredibly important. The business is underpinned by six core values
+                    which speak of our commitment to our customers.
+                </article>
+            </div>
         </div>
-        <div class="card hvr-sweep-to-bottom" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="300">
+        <div class="card" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
             <img src="images/Gallery/undraw_personal_trainer_ote3.svg" alt="">
-            <h3>Training or Empty</h3>
+            <iv class="content">
+                <h3>Training or Empty</h3>
+                <article>We want to help you live a fit and healthy lifestyle! We do this by providing you the most suitable equipment for your body workout, keeping your budget, lifestyle and fitness goals in mind. We have a wide range of gym equipment, with
+                    strength equipment, cardio, cross training and so much more. Our awesome team is always keen to help. At Fitness Edge, we believe that building a positive culture is incredibly important. The business is underpinned by six core values
+                    which speak of our commitment to our customers.
+                </article>
+            </iv>
         </div>
-        <div class="card hvr-sweep-to-bottom" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="300">
+        <div class="card" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
             <img src="images/Gallery/undraw_cup_of_tea_6nqg.svg" alt="">
-            <h3>Start Snacking</h3>
+            <div class="content">
+                <h3>Start Snacking</h3>
+                <article>We want to help you live a fit and healthy lifestyle! We do this by providing you the most suitable equipment for your body workout, keeping your budget, lifestyle and fitness goals in mind. We have a wide range of gym equipment, with
+                    strength equipment, cardio, cross training and so much more. Our awesome team is always keen to help. At Fitness Edge, we believe that building a positive culture is incredibly important. The business is underpinned by six core values
+                    which speak of our commitment to our customers.
+                </article>
+            </div>
         </div>
-        <div class="card hvr-sweep-to-bottom" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="300">
+        <div class="card" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
             <img src="images/Gallery/undraw_breakfast_psiw.svg" alt="">
-            <h3>Top Vegetarian protien Sources</h3>
+            <div class="content">
+                <h3>Top Vegetarian protien Sources</h3>
+                <article>We want to help you live a fit and healthy lifestyle! We do this by providing you the most suitable equipment for your body workout, keeping your budget, lifestyle and fitness goals in mind. We have a wide range of gym equipment, with
+                    strength equipment, cardio, cross training and so much more. Our awesome team is always keen to help. At Fitness Edge, we believe that building a positive culture is incredibly important. The business is underpinned by six core values
+                    which speak of our commitment to our customers.
+                </article>
+            </div>
         </div>
     </section>
 
@@ -99,7 +261,18 @@
         </div>
 
     </section>
-
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js "></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js "></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js "></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+    <!-- cd-signin-modal -->
+    <script src="javascript/placeholders.min.js"></script>
+    <!-- polyfill for the HTML5 placeholder attribute -->
+    <script src="javascript/main.js"></script>
+    <script src="javascript/index.js"></script>
+    <!-- Resource JavaScript -->
     <!--Scripts For Lazy loading Animations-->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
@@ -124,6 +297,24 @@
                 header.classList.remove("sticky");
             }
         }
+    </script>
+    <script>
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                document.getElementById('login-btn').style.display = "none";
+                document.getElementById('signup-btn').style.display = "none";
+                document.getElementById('logout-btn').style.display = "block";
+                document.getElementById('user-avatar').style.display = "block";
+                document.getElementById('username-display').innerText = user.displayName;
+            } else {
+                // No user is signed in.
+                document.getElementById('logout-btn').style.display = "none";
+                document.getElementById('user-avatar').style.display = "none";
+                document.getElementById('login-btn').style.display = "block";
+                document.getElementById('signup-btn').style.display = "block";
+            }
+        });
     </script>
 </body>
 

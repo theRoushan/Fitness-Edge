@@ -90,12 +90,21 @@ header ul li a {
     transition: 0.5s;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .sticky {
     position: fixed;
     top: 0;
     background-color: white;
     box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.2);
     width: 100%
+}
+
+#username-display {
+    background-color: orange;
+    color: white;
 }
 
 .sticky .logo {
@@ -433,10 +442,12 @@ header ul li a {
     display: flex;
     padding: 30px;
     flex-direction: column;
-    align-items: center;
     position: relative;
     width: 28%;
+    justify-content: center;
+    text-align: center;
     background: WHITE;
+    align-items: center;
     border-right: 1px solid rgba(0, 0, 0, 0.2);
     border-left: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -997,6 +1008,21 @@ article {
     box-shadow: inset 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
 }
 
+.round {
+    width: 200px;
+    border-radius: 10px;
+}
+
+.btn-dark {
+    background-color: orangered;
+    color: white;
+}
+
+.btn-orange {
+    background-color: orange;
+    color: white;
+}
+
 .transparent-bg {
     background-color: rgba(255, 109, 42, 0.8);
 }
@@ -1008,36 +1034,54 @@ article {
     display: flex;
     width: 100%;
     margin-top: 100px;
-    padding: 80px 20px 20px 20px;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    padding: 80px 100px 20px 100px;
     margin-bottom: 100px;
+    flex-direction: column;
+    align-items: center;
 }
 
-.nutrition .card {
-    margin: 30px 10px 30px 10px;
-    position: relative;
-    display: flex;
-    background: white;
-    color: black;
-    flex-direction: column;
+.nutrition>h1 {
+    font-size: 40px;
+    color: orange;
     text-align: center;
-    flex-wrap: wrap;
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.1);
-    justify-content: space-between;
+}
+
+.nutrition>hr {
+    border: none;
+    border: 1px solid orange;
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.nutrition .card:nth-child(odd) {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height: 300px;
+    height: max-content;
+    background: orange;
+    margin: 20px 0px;
+}
+
+.nutrition .card:nth-child(even) {
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    height: max-content;
+    background: #ddd;
+    margin: 20px 0px;
 }
 
 .nutrition .card img {
-    width: 300px;
-    height: 300px;
-    padding: 20px;
+    width: 450px;
+    height: 100%;
+    align-self: center;
 }
 
-.nutrition .card h3 {
-    color: orangered;
-    font-size: 13px;
-    padding: 2px;
-    margin-bottom: 10px;
-    font-weight: 400;
+.nutrition .card .content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background-color: rgb(250, 250, 250);
 }
