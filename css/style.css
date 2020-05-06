@@ -118,9 +118,9 @@ ul {
     transition: 0.5s;
     width: 100%;
     height: 780px;
-    justify-content: center;
-    background-image: url('/images/Gallery/caraousel/man-muscular-back.jpg');
+    background: url('../images/Gallery/caraousel/man-muscular-back.jpg');
     box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.2);
+    background-size: cover;
 }
 
 .banner .content {
@@ -976,7 +976,7 @@ article {
     align-items: center;
     justify-content: space-between;
     padding: 20px 100px;
-    background: url(/images/Gallery/shutterstock_255667762.jpg);
+    background: url(../images/Gallery/shutterstock_255667762.jpg);
     background-attachment: scroll;
     background-position: center;
 }

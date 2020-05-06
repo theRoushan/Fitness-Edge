@@ -24,11 +24,8 @@ newRegistration.addEventListener('click', (event) => {
         Auth.currentUser.sendEmailVerification();
         var username = document.getElementById('signup-username').value;
         Auth.currentUser.updateProfile({ displayName: username });
-        var username = document.getElementById('signup-username').value;
         db.collection("Usernames").doc(Auth.currentUser.uid).set({ username: username }).then(function(docRef) {
-            console.log("Document written with ID: " + docRef.id);
-        }).catch(function(error) {
-            console.error("Error adding document: " + error.code);
+            console.log("Document written ");
         });
         var created = addTime();
         db.collection("Users").doc(Auth.currentUser.uid).set({
@@ -48,6 +45,7 @@ newRegistration.addEventListener('click', (event) => {
         }, { merge: true });
         var form = document.getElementsByClassName('cd-signin-modal');
         form[0].classList.remove('cd-signin-modal--is-visible');
+        document.getElementById('username-display').value = username;
     }).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;

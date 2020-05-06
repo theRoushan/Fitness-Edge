@@ -39,6 +39,7 @@
             <ul class="dashboard-links">
                 <li class="logged-user" data-id='tab1'><a href="#"><i class="fas fa-home"></i>Dashboard</a></li>
                 <li class="logged-user" data-id='tab2'><a href="#"><i class="fas fa-user"></i>Profile</a></li>
+                <li class="logged-user" data-id=''><a href="#"><i class="fas fa-plus-circle"></i>Manage Users</a></li>
                 <li class="logged-user" data-id='tab3'><a href="#"><i class="fas fas fa-user-friends"></i>Members</a></li>
                 <li class="logged-user" data-id='tab4'><a href="#"><i class="fas fa-calendar-alt"></i>Attendance</a></li>
                 <li class="logged-user" data-id='tab5'><a href="#"><i class="fas fa-question-circle"></i>Queries</a></li>
@@ -126,6 +127,10 @@
                                     <label for="email">Email :</label>
                                     <input type="email" name="userEmail" placeholder="User Email" id="updateRoleUserEmail" readonly>
                                 </div>
+                                <div class="input admin">
+                                    <label for="fullName">Full Name : </label>
+                                    <input type="text" name="fullName" placeholder="Full Name" id="updateRolefullName">
+                                </div>
                                 <div class="input member">
                                     <label for="membershipPlan">Membership Plan</label>
                                     <input type="text" name="membershipPlan" placeholder="Membership Plan Name" id="updateRoleUserMembershipPlan">
@@ -143,10 +148,10 @@
                 <div id="tab2" class="profile">
                     <div class="profile-container">
                         <div class="user-card">
-                            <img src="https://pbs.twimg.com/profile_images/1188862628388458500/OhE04X-1_400x400.jpg" alt="user-profile-image" height="150px" width="150px" style="border: 1px solid #ddd; border-radius: 75px; margin-bottom: 5px;" id="user-profile-image">
-                            <p id="user-display-name" style="margin-bottom: 3px;">Roushan Kumar</p>
+                            <img id="user-avatar-profile-image" src="" alt="user-profile-image" height="150px" width="150px" style="border: 1px solid #ddd; border-radius: 75px; margin-bottom: 5px;" id="user-profile-image">
+                            <p id="user-display-name" style="margin-bottom: 3px;">Name</p>
                             <b class="hr" style="margin-bottom: 3px;"></b>
-                            <h5 id="user-role" style="margin-bottom: 3px;">Administrator and CEO</h5>
+                            <h5 id="user-role" style="margin-bottom: 3px;"></h5>
                         </div>
                         <div class="form">
                             <h2>User Information</h2>
@@ -210,7 +215,25 @@
                     </div>
                 </div>
                 <div id="tab3" class="members">
-                    <h1>ATAS</h1>
+                    <div>
+                        <h1>LIST OF ALL MEMBERS</h1>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
+                                    <th>Plan</th>
+                                    <th>Member from</th>
+                                    <th>Member upto</th>
+                                    <th>Amount Paid</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-members-table">
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div id="tab4" class="attendance">
                     <div class="attendance-container">
@@ -228,8 +251,28 @@
                                 <p id="total-absent-attendance"></p>
                                 <h2>Absent</h2>
                             </div>
-
                         </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th colspan="2">S.No</th>
+                                    <th colspan="6">Full Name</th>
+                                    <th colspan="6">Member upto</th>
+                                    <th colspan="5">Mark Attendance</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-attendance-table">
+                                <tr>
+                                    <td colspan="2">1</td>
+                                    <td colspan="6">Roushan Kumar</td>
+                                    <td colspan="6">Wed 20 09 2020</td>
+                                    <td colspan="5"><select name="attendance-mark" id="attendance-choice">
+                                        <option value="present-choice">Present</option>
+                                        <option value="absent-choice">Absent</option>
+                                    </select></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div id="tab5" class="queries">
@@ -323,6 +366,8 @@
     </script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
+
+</html>
 
 </html>
 

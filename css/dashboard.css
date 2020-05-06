@@ -570,12 +570,38 @@ header .clock {
 
 .members {
     display: none;
+    padding: 40px;
+    min-height: 100%;
+    width: 100%;
 }
 
 .attendance {
     display: none;
     min-height: 100%;
     width: 100%;
+}
+
+.attendance-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 2% 10%;
+    min-height: 100%;
+}
+
+select {
+    font-size: 16px;
+    width: 60%;
+    outline: none;
+    border: none;
+    border: 1px solid orange;
+    padding: 3px;
+}
+
+tr:hover select {
+    position: relative;
+    border: none;
+    outline: none;
 }
 
 
@@ -586,14 +612,6 @@ header .clock {
     width: 100%;
     min-height: 100%;
     padding: 20px;
-}
-
-.attendance-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 20px 20px;
-    min-height: 100%;
 }
 
 
@@ -619,25 +637,48 @@ table {
     width: 100%;
 }
 
-tr,
-td {
-    border: 1px solid #ddd;
-    padding: 3px;
-    align-items: center;
-    padding-right: 5px;
+tr {
+    color: black;
+    padding: 10px;
 }
 
-tr.table-heading {
-    background: orange;
-    color: white;
-    padding: 5px;
-    font-size: 18px;
-    border: 1px solid orange;
+tr:first-child {
+    padding: 20px;
     border-radius: 10px;
 }
 
+tr td:last-child {
+    text-align: center;
+}
+
+th {
+    padding: 10px;
+    color: white;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgb(15, 13, 13);
+}
+
+th:first-child {
+    border-radius: 10px 0px 0px 0px;
+}
+
+th:last-child {
+    border-radius: 0px 10px 0px 0px;
+}
+
 td {
-    font-size: 14px;
+    border: 1px solid #ddd;
+    padding: 8px;
+    align-items: center;
+    padding-right: 5px;
+    font-size: 16px;
+    background-color: white;
+}
+
+tr:hover td {
+    background-color: orange;
+    color: white;
 }
 
 .subscribers-container .export-button {

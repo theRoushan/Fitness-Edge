@@ -163,10 +163,11 @@ makeAdminBtn.addEventListener('click', (event) => {
     console.log("Initializing Admin Access to New Email");
     const addAdminRole = functions.httpsCallable('addAdminRole');
     var adminEmail = document.getElementById('updateRoleUserEmail').value;
+    var fullName = document.getElementById('updateRolefullName').value;
     addAdminRole({ email: adminEmail }).then(result => {
         var date = addTime();
         var id = document.getElementById('updateRoleUserId').value;
-        db.collection('Users').doc(id).set({ adminFrom: date }, { merge: true }).then(function() {
+        db.collection('Users').doc(id).set({ adminFrom: date, fullName: updateRolefullName }, { merge: true }).then(function() {
             console.log("User Role Modified..");
         });
         console.log(result);
@@ -223,6 +224,7 @@ makeMember.addEventListener('click', (event) => {
     console.log("Initializing Member Access to New Email");
     const memberEmail = document.getElementById('make-email-member').value;
     const addMembership = functions.httpsCallable('addMembership');
+    var fullName = document.getElementById('updateRolefullName').value;
     addMembership({ email: memberEmail }).then(result => {
         console.log(result);
         alert(memberEmail + " is member now.");
@@ -234,7 +236,7 @@ makeMember.addEventListener('click', (event) => {
                 var planAmount = document.getElementById('updateRoleUserMembershipAmount').value;
                 var date = addTime();
                 lastDate = increaseDate(30);
-                db.collection('Members').doc(doc.id).set({ email: memberEmail, fullName: data.fullName, memberFrom: date, membershipExpire: lastDate, plan: plan, planAmount: planAmount }).then(function() {
+                db.collection('Members').doc(doc.id).set({ email: memberEmail, fullName: fullName, memberFrom: date, membershipExpire: lastDate, plan: plan, planAmount: planAmount }).then(function() {
                     console.log("New Member data has been updated in database");
                 });
             })
@@ -257,7 +259,6 @@ const subscribersList = (data) => {
     var sNo = 1;
     data.forEach(doc => {
         const subscribers = doc.data();
-        console.log(subscribers);
         const element = `<tr>
         <td colspan="1">${sNo++}</td>
         <td colspan="6">${subscribers.Email}</td>
@@ -292,7 +293,6 @@ const queriesList = (query) => {
     var sNo = 1;
     query.forEach(queryDoc => {
         const queries = queryDoc.data();
-        console.log(queries);
         const element = `<tr>
         <td colspan="1">${sNo++}</td>
         <td colspan="3">${queries.created}</td>
@@ -314,6 +314,49 @@ function getQueries() {
     });
 }
 
+//Another Table for the Members details
+var memberTable = document.querySelector('#tbody-members-table');
+var memberAttendanceTable = document.querySelector('#tbody-attendance-table');
+const membersList = (query) => {
+    let html = '';
+    let ahtml = '';
+    var sNo = 1;
+    //for members list table
+    query.forEach(queryDoc => {
+        const members = queryDoc.data();
+        const element = `<tr>
+        <td>${sNo}</td>
+        <td>${members.fullName}</td>
+        <td>${members.email}</td>
+        <td>${members.plan}</td>
+        <td>${members.memberFrom}</td>
+        <td>${members.membershipExpire}</td>
+        <td>${members.planAmount}</td>
+    </tr>`
+            //for attendance table
+        const attendanceElement = ` <tr>
+        <td colspan="2">${sNo++}</td>
+        <td colspan="6">${members.fullName}</td>
+        <td colspan="6">${members.membershipExpire}</td>
+        <td colspan="5"><select name="attendance-mark" id="attendance-choice">
+            <option value="present-choice">Present</option>
+            <option value="absent-choice">Absent</option>
+        </select></td>
+    </tr>`
+        html += element;
+        //it will also update the attendance table member list
+        ahtml += attendanceElement;
+    });
+    memberTable.innerHTML = html;
+    memberAttendanceTable.innerHTML = ahtml;
+}
+
+function getMembers() {
+    console.log("fetching Members List");
+    db.collection('Members').onSnapshot(snapshot => {
+        membersList(snapshot.docs)
+    });
+}
 
 //Function to display total Users
 function dashboardData() {
@@ -337,18 +380,24 @@ function dashboardData() {
         totalNewUsers.innerText = querySnapshot.docs.length;
     });
 
-    var expireDate = db.collection('Members').where('membershipExpire', '<', todayDate);
+    var expireDate = db.collection('Members').where('membershipExpire', '>', todayDate);
     expireDate.get().then(function(snapshot) {
         console.log("Expired Membership : " + snapshot.docs.length);
         document.getElementById('expired-membership-count').innerText = snapshot.docs.length;
     });
 
+
     //query for total present and absent memebers attendance from database
     var attendance = db.collection('Attendance').doc(todayDate);
     attendance.get().then(function(doc) {
-        var data = doc.data();
-        document.getElementById('total-present-attendance').innerText = data.Present;
-        document.getElementById('total-absent-attendance').innerText = data.Absent;
+        if (!doc.exists) {
+            console.log("Attendance record created for " + todayDate);
+            db.collection('Attendance').doc(todayDate).set({ Present: 0, Absent: 0 });
+        } else {
+            var data = doc.data();
+            document.getElementById('total-present-attendance').innerText = data.Present;
+            document.getElementById('total-absent-attendance').innerText = data.Absent;
+        }
     })
 }
 
@@ -367,12 +416,16 @@ var address1 = document.querySelector('#address1');
 var city = document.querySelector('#city');
 var state = document.querySelector('#state');
 var country = document.querySelector('#country');
+var displayName = document.querySelector('#user-display-name');
+var userRole = document.querySelector('#user-role');
+var userImage = document.querySelector('#user-avatar-profile-image');
 $(".form .input>:input").prop('readonly', true);
 Auth.onAuthStateChanged(function(User) {
     if (User) {
         dashboardData();
         getQueries();
         getSubscribers();
+        getMembers();
         var userDatabaseRef = db.collection('Users').doc(User.uid);
         userDatabaseRef.get().then(function(doc) {
             if (doc.exists) {
@@ -389,6 +442,9 @@ Auth.onAuthStateChanged(function(User) {
                 city.value = user.city;
                 state.value = user.state;
                 country.value = user.country;
+                userRole.innerText = user.role;
+                userImage.src = user.photoURL;
+                displayName.innerText = user.fullName;
             } else {
                 console.log("User Information Doesnt Exists.")
             }
