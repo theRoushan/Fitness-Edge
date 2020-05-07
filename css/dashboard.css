@@ -382,16 +382,32 @@ header .clock {
     background-color: orange;
 }
 
+.bg-orange:hover {
+    background-color: rgb(231, 152, 6);
+}
+
 .bg-orangered {
     background-color: orangered;
+}
+
+.bg-orangered:hover {
+    background: rgb(223, 60, 1);
 }
 
 .bg-royalblue {
     background-color: royalblue;
 }
 
+.bg-royalblue:hover {
+    background-color: rgb(5, 5, 187);
+}
+
 .bg-green {
     background-color: green;
+}
+
+.bg-green:hover {
+    background-color: rgb(0, 92, 0);
 }
 
 .card {
@@ -462,9 +478,11 @@ header .clock {
     display: flex;
     align-items: center;
     padding: 8px;
-    width: 70px;
     outline: none;
-    justify-content: space-between;
+    width: 100px;
+    text-align: center;
+    margin: 10px;
+    justify-content: center;
     border: none;
     border-radius: 5px;
 }
@@ -502,7 +520,6 @@ header .clock {
 .profile-container .user-card {
     width: 25%;
     height: 300px;
-    margin-right: 50px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -517,9 +534,28 @@ header .clock {
 }
 
 .profile-container .form {
-    width: 70%;
+    width: 60%;
     padding: 40px 80px;
     background-color: white;
+}
+
+#member-card {
+    display: flex;
+    width: 20%;
+    background: white;
+    color: black;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    justify-content: center;
+    padding: 20px;
+    justify-content: center;
+}
+
+#member-card>h3 {
+    position: relative;
 }
 
 .panel {
@@ -602,6 +638,13 @@ tr:hover select {
     position: relative;
     border: none;
     outline: none;
+}
+
+.attendance-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -695,4 +738,8 @@ tr:hover td {
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
+}
+
+justify-content: space-between;
+
 }

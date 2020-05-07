@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Details</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</head>
+
+<body onload="getUserProfileInformation();">
+    <div class="profile" style="display: flex; width: 100%;">
+        <div class="profile-container" style="width: 100%; padding: 80px 40px;">
+            <div class="user-card">
+                <img id="user-avatar-profile-image" src="" alt="user-profile-image" height="150px" width="150px" style="border: 1px solid #ddd; border-radius: 75px; margin-bottom: 5px;" id="user-profile-image">
+                <p id="user-display-name" style="margin-bottom: 3px;">Name</p>
+                <b class="hr" style="margin-bottom: 3px;"></b>
+                <h5 id="user-role" style="margin-bottom: 3px;"></h5>
+            </div>
+            <div class="form" style="width: 50%;">
+                <h2>User Information</h2>
+                <div class="personal-details">
+                    <h4 class="panel">Personal Details</h4>
+                    <div class="form-content">
+                        <div class="input form-username-area" aria-disabled="false">
+                            <label for="username">Username: </label>
+                            <input type="text" name="username" id="username" placeholder="Username">
+                        </div>
+                        <div class="input form-fullname-area">
+                            <label for="fullname">Full Name: </label>
+                            <input type="text" name="fullname" id="fullName" placeholder="Your Full Name">
+                        </div>
+                        <div class="input form-email-area">
+                            <label for="email">Email: </label>
+                            <input type="email" name="email" id="email" placeholder="Email Address">
+                        </div>
+                        <div class="input form-photo-area">
+                            <label for="photo-url">Photo URL: </label>
+                            <input type="url" name="photo-url" id="photoURL" placeholder="Your Profile Photo URL">
+                        </div>
+                        <div class="input form-mobile-area">
+                            <label for="mobile">Mobile: </label>
+                            <input type="number" name="mobile" id="mobile" placeholder="Mobile Number">
+                        </div>
+                        <div class="input form-dob-area">
+                            <label for="dob">DOB: </label>
+                            <input type="text" name="dob" id="dob" placeholder="DD/MM/YYYY">
+                        </div>
+                    </div>
+                </div>
+                <div class="address-details">
+                    <h4 class="panel">Communication Address</h4>
+                    <div class="input form-address-locality-area">
+                        <label for="locality">Locality: </label>
+                        <input type="text" name="locality" id="locality" placeholder="Street, Village">
+                    </div>
+                    <div class="input form-address-adress1">
+                        <label for="address1">Address1: </label>
+                        <input type="text" name="address1" id="address1" placeholder="Address 1">
+                    </div>
+                    <div class="input form-address-city">
+                        <label for="city">City: </label>
+                        <input type="text" name="city" id="city" placeholder="City">
+                    </div>
+                    <div class="input form-address-state">
+                        <label for="state">State: </label>
+                        <input type="text" name="state" id="state" placeholder="State">
+                    </div>
+                    <div class="input form-address-country">
+                        <label for="country">Country: </label>
+                        <input type="text" name="country" id="country" placeholder="Country">
+                    </div>
+                    <div class="buttons">
+                        <button class="btn bg-royalblue" id="edit-user-information">Edit <i class=" fas fa-edit"></i></button>
+                        <button class="btn bg-green" id="save-user-information">Save <i class="fas fa-save"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="member-card" id="member-card" style="visibility: hidden;">
+                <h3 id="membershipPlan">PLAN : </h3>
+                <p id="amountPaid">Fees : </p>
+                <p id="membershipPurchased">Purchased On : </p>
+                <p id="membershipExpire">Expire On : </p>
+            </div>
+        </div>
+    </div>
+    <script src="javascript/jquery.min.js"></script>
+    <script src="javascript/placeholders.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+    <script src="javascript/index.js"></script>
+</body>
+
+</html>

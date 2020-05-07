@@ -334,13 +334,13 @@ const membersList = (query) => {
         <td>${members.planAmount}</td>
     </tr>`
             //for attendance table
-        const attendanceElement = ` <tr>
+        const attendanceElement = `<tr>
         <td colspan="2">${sNo++}</td>
         <td colspan="6">${members.fullName}</td>
         <td colspan="6">${members.membershipExpire}</td>
-        <td colspan="5"><select name="attendance-mark" id="attendance-choice">
-            <option value="present-choice">Present</option>
-            <option value="absent-choice">Absent</option>
+        <td colspan="5"><select name="attendance-mark">
+            <option value="present" class="option" selected>Present</option>
+            <option value="absent" class="option">Absent</option>
         </select></td>
     </tr>`
         html += element;
@@ -388,22 +388,36 @@ function dashboardData() {
 
 
     //query for total present and absent memebers attendance from database
+    document.getElementById('date-tag-attendance').innerText = "Attendance for '" + todayDate + "'";
     var attendance = db.collection('Attendance').doc(todayDate);
     attendance.get().then(function(doc) {
-        if (!doc.exists) {
-            console.log("Attendance record created for " + todayDate);
-            db.collection('Attendance').doc(todayDate).set({ Present: 0, Absent: 0 });
-        } else {
+        if (doc.exists) {
             var data = doc.data();
+            document.getElementById('date-tag-attendance').innerText = "Attendance has been Submitted!";
+            document.getElementById('attendanceTable').style.display = "none";
             document.getElementById('total-present-attendance').innerText = data.Present;
             document.getElementById('total-absent-attendance').innerText = data.Absent;
+            //db.collection('Attendance').doc(todayDate).set({ Present: "_", Absent: "_" });
+        } else {
+            document.getElementById('total-present-attendance').innerText = "_";
+            document.getElementById('total-absent-attendance').innerText = "_";
         }
+    });
+    const submitAttendance = document.getElementById('submit-attendance-button');
+    submitAttendance.addEventListener('click', (event) => {
+        event.preventDefault();
+        var present = $('option:selected[value = present]').length;
+        var absent = $('option:selected[value = absent]').length;
+        console.log("Absent : " + absent + " Present : " + present);
+        attendance.set({ Present: present, Absent: absent }).then(function() {
+            alert("Attendance Punched Successfully.");
+        })
     })
 }
 
 
 
-//function to retrieve admin-user data
+//function to retrieve  user data
 //first disable all the user input fields and enable them on listing click on edit button
 var username = document.querySelector('#username');
 var fullName = document.querySelector('#fullName');
@@ -422,10 +436,16 @@ var userImage = document.querySelector('#user-avatar-profile-image');
 $(".form .input>:input").prop('readonly', true);
 Auth.onAuthStateChanged(function(User) {
     if (User) {
-        dashboardData();
-        getQueries();
-        getSubscribers();
-        getMembers();
+        User.getIdTokenResult().then(idTokenResult => {
+            isAdmin = idTokenResult.claims.admin;
+            if (isAdmin) {
+                dashboardData();
+                getQueries();
+                getSubscribers();
+                getMembers();
+            }
+        });
+
         var userDatabaseRef = db.collection('Users').doc(User.uid);
         userDatabaseRef.get().then(function(doc) {
             if (doc.exists) {

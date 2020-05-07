@@ -130,3 +130,97 @@ submitQuery.addEventListener('click', (event) => {
         console.log("Error : " + error.code)
     });
 })
+
+
+function getUserProfileInformation() {
+    //function to retrieve  user data
+    //first disable all the user input fields and enable them on listing click on edit button
+    var username = document.querySelector('#username');
+    var fullName = document.querySelector('#fullName');
+    var email = document.querySelector('#email');
+    var photoURL = document.querySelector('#photoURL');
+    var mobile = document.querySelector('#mobile');
+    var dob = document.querySelector('#dob');
+    var locality = document.querySelector('#locality');
+    var address1 = document.querySelector('#address1');
+    var city = document.querySelector('#city');
+    var state = document.querySelector('#state');
+    var country = document.querySelector('#country');
+    var displayName = document.querySelector('#user-display-name');
+    var userRole = document.querySelector('#user-role');
+    var userImage = document.querySelector('#user-avatar-profile-image');
+    var memPlan = document.getElementById('membershipPlan');
+    var amountPaid = document.getElementById('amountPaid');
+    var memPurchased = document.getElementById('membershipPurchased');
+    var memExpire = document.getElementById('membershipExpire');
+    $(".form .input>:input").prop('readonly', true);
+    Auth.onAuthStateChanged(function(User) {
+        if (User) {
+            User.getIdTokenResult().then(idTokenResult => {
+                isMember = idTokenResult.claims.membership;
+                if (isMember) {
+                    document.getElementById('member-card').style.visibility = "visible";
+                    var currUserId = Auth.currentUser.uid;
+                    var docRef = db.collection('Members').doc(currUserId);
+                    docRef.get().then(function(doc) {
+                        var data = doc.data();
+                        console.log(data);
+                        memPlan.innerText += data.plan;
+                        amountPaid.innerText += data.planAmount;
+                        memPurchased.innerText += data.memberFrom;
+                        memExpire.innerText += data.membershipExpire;
+                    });
+                }
+            });
+            var userDatabaseRef = db.collection('Users').doc(User.uid);
+            userDatabaseRef.get().then(function(doc) {
+                if (doc.exists) {
+                    console.log("Document opened with id : " + doc.id);
+                    var user = doc.data();
+                    username.value = user.username;
+                    fullName.value = user.fullName;
+                    email.value = user.email;
+                    photoURL.value = user.photoURL;
+                    mobile.value = user.mobile;
+                    dob.value = user.dob;
+                    locality.value = user.locality;
+                    address1.value = user.address1;
+                    city.value = user.city;
+                    state.value = user.state;
+                    country.value = user.country;
+                    userRole.innerText = user.role;
+                    userImage.src = user.photoURL;
+                    displayName.innerText = user.fullName;
+                } else {
+                    console.log("User Information Doesnt Exists.")
+                }
+            });
+            const editUser = document.getElementById('edit-user-information');
+            editUser.addEventListener('click', (event) => {
+                event.preventDefault();
+                $(".form .input>:input").prop('readonly', false);
+                $(".form-content .form-username-area>:input").prop('readonly', true);
+            })
+            const saveUser = document.getElementById('save-user-information');
+            saveUser.addEventListener('click', (event) => {
+                event.preventDefault();
+                userDatabaseRef.set({
+                    fullName: fullName.value,
+                    email: email.value,
+                    photoURL: photoURL.value,
+                    mobile: mobile.value,
+                    dob: dob.value,
+                    locality: locality.value,
+                    address1: address1.value,
+                    role: "Welcome to Fitness-Edge",
+                    city: city.value,
+                    state: state.value,
+                    country: country.value
+                }, { merge: true }).then(function() {
+                    $(".form .input>:input").prop('readonly', true);
+                    console.log("User data saved Successfully.");
+                });
+            });
+        } else console.log("Login to Load Dashboard Components");
+    });
+}
