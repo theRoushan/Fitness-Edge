@@ -507,14 +507,14 @@ header .clock {
 .profile {
     display: none;
     width: 100%;
-    padding: 0 30px;
+    padding: 0 40px;
     position: relative;
 }
 
 .profile>.profile-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .profile-container .user-card {
@@ -604,6 +604,16 @@ header .clock {
     width: 150px;
 }
 
+
+/*Customization of manage-users Section*/
+
+.manage-users {
+    display: none;
+    padding: 40px;
+    min-height: 100%;
+    width: 100%;
+}
+
 .members {
     display: none;
     padding: 40px;
@@ -613,6 +623,7 @@ header .clock {
 
 .attendance {
     display: none;
+    padding: 40px;
     min-height: 100%;
     width: 100%;
 }
@@ -654,7 +665,7 @@ tr:hover select {
     display: none;
     width: 100%;
     min-height: 100%;
-    padding: 20px;
+    padding: 40px;
 }
 
 
@@ -738,8 +749,4 @@ tr:hover td {
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
-}
-
-justify-content: space-between;
-
 }

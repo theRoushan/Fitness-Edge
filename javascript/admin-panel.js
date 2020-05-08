@@ -167,7 +167,7 @@ makeAdminBtn.addEventListener('click', (event) => {
     addAdminRole({ email: adminEmail }).then(result => {
         var date = addTime();
         var id = document.getElementById('updateRoleUserId').value;
-        db.collection('Users').doc(id).set({ adminFrom: date, fullName: updateRolefullName }, { merge: true }).then(function() {
+        db.collection('Users').doc(id).set({ adminFrom: date, fullName: fullName }, { merge: true }).then(function() {
             console.log("User Role Modified..");
         });
         console.log(result);
@@ -336,7 +336,8 @@ const membersList = (query) => {
             //for attendance table
         const attendanceElement = `<tr>
         <td colspan="2">${sNo++}</td>
-        <td colspan="6">${members.fullName}</td>
+        <td colspan="6">${queryDoc.id}</td>
+        <td colspan="4">${members.fullName}</td>
         <td colspan="6">${members.membershipExpire}</td>
         <td colspan="5"><select name="attendance-mark">
             <option value="present" class="option" selected>Present</option>
@@ -363,6 +364,8 @@ function dashboardData() {
     db.collection('Users').get().then((snapshot) => {
         var totalUsers = document.getElementById('total-users-count');
         totalUsers.innerText = snapshot.docs.length;
+        //updates the total user in the manage-user tab
+        document.getElementById('total-users-count-2').innerText = snapshot.docs.length;
     });
     db.collection('Members').get().then((snapshot) => {
         var totalMembers = document.getElementById('total-members-count');
@@ -378,6 +381,7 @@ function dashboardData() {
         var totalNewUsers = document.getElementById('total-new-users-count');
         console.log("Total New Users : " + querySnapshot.docs.length);
         totalNewUsers.innerText = querySnapshot.docs.length;
+        document.getElementById('total-new-users-count-2').innerText = querySnapshot.docs.length;
     });
 
     var expireDate = db.collection('Members').where('membershipExpire', '>', todayDate);
@@ -406,13 +410,34 @@ function dashboardData() {
     const submitAttendance = document.getElementById('submit-attendance-button');
     submitAttendance.addEventListener('click', (event) => {
         event.preventDefault();
-        var present = $('option:selected[value = present]').length;
-        var absent = $('option:selected[value = absent]').length;
-        console.log("Absent : " + absent + " Present : " + present);
-        attendance.set({ Present: present, Absent: absent }).then(function() {
+        var present = $('#tbody-attendance-table option:selected[value = present]').length;
+        var absent = $('#tbody-attendance-table option:selected[value = absent]').length;
+        var Total = document.querySelectorAll('#tbody-attendance-table tr td:nth-child(2)');
+        var ref = $('#tbody-attendance-table tr option:selected');
+        console.log("Absent : " + absent + " Present : " + present + " Total = " + Total.length);
+
+        var i;
+        for (i = 0; i < Total.length; i++) {
+            var memId = Total[i].innerHTML + "";
+            var text = ref[i].value + "";
+            console.log("memID = " + memId + " text = " + text);
+            attendance.set({
+                [memId]: text
+            }, { merge: true }).then(function() {})
+        }
+
+        attendance.update({ Present: present, Absent: absent }).then(function() {
             alert("Attendance Punched Successfully.");
+            document.getElementById('attendanceTable').style.display = "none";
         })
-    })
+        console.log(todayDate);
+        db.collection('Attendance').doc(todayDate).get().then(function(doc) {
+            var data = doc.data();
+            document.getElementById('total-present-attendance').innerText = data.Present;
+            document.getElementById('total-absent-attendance').innerText = data.Absent;
+        });
+    });
+
 }
 
 
