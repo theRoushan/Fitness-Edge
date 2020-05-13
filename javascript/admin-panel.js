@@ -76,6 +76,8 @@ function hamburger() {
     main.classList.toggle('full-container');
 }
 
+
+
 //hides the panel designed for not logged users and unhide the panel for logged user
 function showLoggedUserAccess() {
     var elements = document.getElementsByClassName('logged-user');
@@ -247,6 +249,60 @@ makeMember.addEventListener('click', (event) => {
 });
 
 
+//function to add users in firebase auth
+const createNewUser = document.querySelector("#create-new-user");
+createNewUser.addEventListener('click', (event) => {
+    event.preventDefault();
+    $('#popup-container-form').show();
+    $("#create-user-form").animate({ top: '100px' }, "fast");
+    document.querySelector('#popup-close-btn').addEventListener('click', (event) => {
+        $('#popup-container-form').hide();
+        $("#create-user-form").animate({ top: '-450px' }, "fast");
+    });
+
+});
+//function  on submit form in create new user form
+const addNewUser = document.querySelector('#create-new-user-submit');
+addNewUser.addEventListener('click', (event) => {
+    event.preventDefault();
+    var email = $('#new-user-email').val();
+    var username = $('#new-user-username').val();
+    var password = $('#new-user-password').val();
+    var fullName = $('#new-user-fullName').val();
+    const addUser = functions.httpsCallable('addUser');
+    addUser({ email: email, displayName: username, password: password }).then(result => {
+        var uid = result.data;
+        var created = addTime();
+        if (uid) {
+            console.log("uid of new user : " + uid)
+            db.collection("Users").doc(uid).set({
+                username: username,
+                created: created,
+                fullName: fullName,
+                email: email,
+                password: password,
+                photoURL: '',
+                mobile: '',
+                dob: '',
+                locality: '',
+                address1: '',
+                city: '',
+                state: '',
+                country: ''
+            }, { merge: true });
+            db.collection("Usernames").doc(uid).set({ username: username }).then(function(docRef) {});
+            console.log("New User Record created Successfully.");
+            alert("User Created Successfully");
+            $('#create-user-form :input').attr('value', '');
+            $('#popup-container-form').hide();
+        } else {
+            console.log("Error uid cannot fetched")
+            alert("Unknown Error Occured. Check console log.")
+        }
+    });
+
+});
+
 //Function to show Subscribers list at realtime from firestore
 var subscribersTable = document.querySelector('#subscribers-table');
 const subscribersList = (data) => {
@@ -325,13 +381,13 @@ const membersList = (query) => {
     query.forEach(queryDoc => {
         const members = queryDoc.data();
         const element = `<tr>
-        <td>${sNo}</td>
-        <td>${members.fullName}</td>
-        <td>${members.email}</td>
-        <td>${members.plan}</td>
-        <td>${members.memberFrom}</td>
-        <td>${members.membershipExpire}</td>
-        <td>${members.planAmount}</td>
+        <td colspan="1">${sNo}</td>
+        <td colspan="4">${members.fullName}</td>
+        <td colspan="6">${members.email}</td>
+        <td colspan="2">${members.plan}</td>
+        <td colspan="4">${members.memberFrom}</td>
+        <td colspan="4">${members.membershipExpire}</td>
+        <td colspan="3">${members.planAmount}</td>
     </tr>`
             //for attendance table
         const attendanceElement = `<tr>
@@ -356,6 +412,59 @@ function getMembers() {
     console.log("fetching Members List");
     db.collection('Members').onSnapshot(snapshot => {
         membersList(snapshot.docs)
+    });
+}
+
+//function to get users list
+var userListTable = document.querySelector('#tbody-users-table');
+const usersList = (query) => {
+    let html = '';
+    var sNo = 1;
+    //for members list table
+    query.forEach(queryDoc => {
+        const users = queryDoc.data();
+        const element = `<tr>
+        <td colspan="1">${sNo++}</td>
+        <td colspan="4">${users.fullName}</td>
+        <td colspan="4">${users.email}</td>
+        <td colspan="6">${queryDoc.id}</td>
+        <td colspan="4">${users.password}</td>
+        <td colspan="2"><button class="btn bg-orangered delete-user"> Delete </button></td>
+    </tr>`
+        html += element;
+
+    });
+    userListTable.innerHTML = html;
+    //function to add event listener to each delete button
+    var deleteButtons = document.querySelectorAll("#tbody-users-table tr .delete-user");
+    var uidOfUsers = document.querySelectorAll('#tbody-users-table tr td:nth-child(4)');
+    const deleteUser = functions.httpsCallable('deleteUser');
+    for (var i = 0; i < deleteButtons.length; i++) {
+        deleteButtons[i].addEventListener('click', function(i) {
+            var uid = uidOfUsers[i].innerHTML + "";
+            console.log("uid : " + uid);
+            deleteUser({ uid: uid }).then(e => {
+                alert("User Account deleted Successfully");
+            });
+            db.collection('Users').doc(uid).delete().then(function() {
+                console.log("User data removed from User Database");
+            })
+            db.collection('Usernames').doc(uid).delete().then(function() {
+                console.log("Username data removed from Userame Database");
+            })
+
+            db.collection('Members').doc(uid).delete().then(function() {
+                console.log("User Member record removed from Member Database");
+            })
+
+        }.bind(this, i));
+    }
+}
+
+function getUsersList() {
+    console.log("fetching Users List");
+    db.collection('Users').onSnapshot(snapshot => {
+        usersList(snapshot.docs)
     });
 }
 
@@ -468,6 +577,7 @@ Auth.onAuthStateChanged(function(User) {
                 getQueries();
                 getSubscribers();
                 getMembers();
+                getUsersList();
             }
         });
 

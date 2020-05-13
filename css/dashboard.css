@@ -614,6 +614,19 @@ header .clock {
     width: 100%;
 }
 
+.manage-user-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.manage-user-container #div-table {
+    position: relative;
+    margin-bottom: 40px;
+}
+
 .members {
     display: none;
     padding: 40px;
@@ -731,7 +744,7 @@ td {
 }
 
 tr:hover td {
-    background-color: orange;
+    background-color: #9c9c9c;
     color: white;
 }
 
@@ -749,4 +762,53 @@ tr:hover td {
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
+}
+
+
+/* form for creating new user from dashboard*/
+
+.popup-container {
+    z-index: 300;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#create-user-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    padding: 40px;
+    width: 40%;
+    top: -450px;
+    right: 300px;
+    background-color: white;
+    margin: 40px;
+    transition: 0.5s ease;
+}
+
+#create-user-form input {
+    outline: none;
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    width: 300px;
+    border-bottom: 1px solid #ccc;
+    transition: 0.5s;
+}
+
+#create-user-form input:focus {
+    border-bottom: 2px solid green;
+    transition: 0.5s;
+}
+
+#create-user-form i {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: grab;
 }

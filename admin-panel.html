@@ -228,7 +228,7 @@
                                 <h2 class="card-title">New Users Today</h2>
                             </div>
                         </div>
-                        <div>
+                        <div id="div-table">
                             <h1 style="margin-left: 20px; text-align: center;">LIST OF ALL USERS</h1>
                             <button class="btn bg-green" id="create-new-user" style="width: 100px; float: right; margin-right: 25px;">New User</button>
                             <table>
@@ -247,8 +247,16 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div>
-
+                        <div class="popup-container" id="popup-container-form" style="display: none;">
+                            <form action="#" id="create-user-form">
+                                <h2 style="margin-bottom: 15px;">Input User Information</h2>
+                                <input type="email" class="input" autocomplete="email" required id="new-user-email" placeholder="Email">
+                                <input type="username" class="input" autocomplete="username" required id="new-user-username" placeholder="Username">
+                                <input type="Password" class="input" autocomplete="current-password" required id="new-user-password" placeholder="Password">
+                                <input type="fullName" class="input" autocomplete="name" required id="new-user-fullName" placeholder="Full Name">
+                                <button class="btn bg-green" id="create-new-user-submit" style="width: 100px; float: right; margin-right: 25px;">Submit</button>
+                                <i class="fa fa-times" id="popup-close-btn"></i>
+                            </form>
                         </div>
                     </div>
                 </div>
